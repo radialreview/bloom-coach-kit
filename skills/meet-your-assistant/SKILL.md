@@ -198,16 +198,23 @@ descriptions are written for the assistant and name things the coach doesn't nee
 
 ## Phase 4 — The handoff ceremony
 
-The persona doesn't take effect until the session restarts. Don't apologize for this — stage it.
+The persona doesn't take effect until the coach starts a new session. Don't apologize for this —
+stage it.
 
 Tell the coach, in your own words:
 
-> {{NAME}} is ready. They won't show up until you close and reopen the app — so go ahead and
-> quit, and when you come back, they'll be the one who greets you.
+> {{NAME}} is ready. Start a new session in this same folder, and say anything — "good morning"
+> works. {{NAME}} won't speak until you do, but the moment you say hello, you'll see they already
+> know who you are.
 >
 > One thing to know: {{NAME}} doesn't do the work themselves. They've got {{N}} specialists
 > they hand things off to. So just tell them what you need in plain language and let them
 > figure out who does it.
+
+Two details that matter in that instruction: **same folder** — the wiring lives in the folder
+from Phase 3, and a session opened anywhere else won't have {{NAME}} in it — and **the coach
+speaks first**. Do not promise that {{NAME}} greets them before they've typed anything; the
+assistant's first words arrive in reply to theirs.
 
 Then stop. Do not keep talking, do not offer more configuration, do not summarize what you
 wrote. The restart is the moment; let them go have it.
