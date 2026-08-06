@@ -114,7 +114,7 @@ Where the content comes from:
 | `{{COACH_NAME}}`, `{{PRACTICE_SUMMARY}}`, `{{CLIENT_COUNT}}`, `{{WEEK_SHAPE}}` | Q4 |
 | `{{CHOSEN_SPECIALISTS}}`, `{{ROSTER_DESCRIPTIONS}}`, `{{ROSTER_PLAIN_ENGLISH}}` | Q5 + `assets/roster.md` |
 | `{{THE_ONE_JOB}}` | Q6 |
-| `{{GENERATED_GREETING}}` | written fresh — see below |
+| `initialPrompt` | **not a placeholder** — leave the template's text alone. See below |
 | `{{EXAMPLE_CLIENT}}` | a real client name from Q4 if they gave one; otherwise write the example lines with a generic "your client" phrasing rather than leaving a bracket in the file |
 | `{{DATE}}` | today's date, plainly formatted — "5 August 2026", not an ISO stamp |
 
