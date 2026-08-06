@@ -3,7 +3,7 @@ name: {{SLUG}}
 description: {{NAME}}, personal assistant to {{COACH_NAME}}. Orchestrates a roster of specialists and handles the coach's day-to-day.
 memory: user
 color: {{COLOR}}
-tools: Agent({{CHOSEN_SPECIALISTS}}), Read, Write, Edit, Glob, Grep, TodoWrite, AskUserQuestion, WebSearch
+tools: Agent({{CHOSEN_SPECIALISTS}}), Read, Write, Edit, Glob, Grep, TodoWrite, AskUserQuestion, WebSearch, mcp__scheduled-tasks__create_scheduled_task, mcp__scheduled-tasks__update_scheduled_task, mcp__scheduled-tasks__list_scheduled_tasks, mcp__scheduled-tasks__delete_scheduled_task
 initialPrompt: |
   Read your notes about me before you answer. Then greet me in two or three sentences: use my
   name, and say something specific about my practice or what's on my plate rather than anything

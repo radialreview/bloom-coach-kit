@@ -48,9 +48,14 @@ default — only ask about days if they bring it up.
 ## Phase 3 — Create the task
 
 Create **one local scheduled task** using the scheduled-tasks tool available in the session
-(`create_scheduled_task`). It must be a **local task on the coach's machine — never a cloud or
-remote routine**, even if one is offered. A cloud routine runs from a fresh clone with no access
-to the coach's files, so it would produce a brief from nothing; this constraint is load-bearing.
+(`create_scheduled_task`, from the built-in `scheduled-tasks` MCP server). It must be a **local
+task on the coach's machine — never a cloud or remote routine**, even if one is offered. A cloud
+routine runs from a fresh clone with no access to the coach's files, so it would produce a brief
+from nothing; this constraint is load-bearing.
+
+If the tool genuinely isn't in this session (check before claiming so — persona whitelists
+written before v0.1.6 blocked it), don't fake success and don't substitute a cloud routine. Save
+the coach's choices to memory, say plainly that this needs a fresh session, and pick it up there.
 
 - **taskId:** `{{SLUG}}-morning-brief`
 - **description:** `{{NAME}}'s weekday morning brief for {{COACH_FIRST_NAME}}`

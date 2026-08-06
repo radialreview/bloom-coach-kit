@@ -138,6 +138,12 @@ Two fields need care:
   — `bloom-coach-kit:scheduler`, not `scheduler`. Without the prefix the name doesn't resolve, and
   because nothing errors at load time the coach finds out only when their first request fails.
   This is the single easiest thing to get wrong in the whole skill.
+
+  **Keep the four `mcp__scheduled-tasks__*` entries** in the template's list. They're what
+  `set-up-my-morning` rides on — an explicit `tools:` field is a whitelist, and dropping them
+  means the assistant can't create or change the coach's morning brief. They're safe to
+  enumerate because they're a built-in desktop server with stable names, unlike connector MCP
+  tools.
 - **`initialPrompt:`** — **leave the template's text as it is.** Do not replace it with a written
   greeting.
 
