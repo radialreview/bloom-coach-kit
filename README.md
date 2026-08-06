@@ -19,12 +19,17 @@ Requires a paid Claude plan — the Code tab isn't available on the free tier.
   - `assets/persona-template.md` — the orchestrator written to `~/.claude/agents/`
   - `assets/personalities.md` — the four personality presets and their colors
   - `assets/roster.md` — specialist descriptions, in both persona and coach-facing wording
+  - `assets/claude-md-template.md` — the folder activation block (see maintainer notes)
   - `assets/coach-memory-template.md` — seed for `~/.claude/agent-memory/`
   - `assets/my-assistant-template.md` — the coach's cheat sheet
+- `skills/add-a-specialist/` — grows the roster after the workshop; wires the persona's
+  `Agent(...)` line, which is the step that silently breaks routing if skipped
+- `skills/set-up-my-morning/` — creates the local weekday morning-brief task
 - `agents/meeting-prep.md` — specialist
 - `agents/scheduler.md` — specialist
 - `agents/email-drafter.md` — specialist
 - `agents/researcher.md` — specialist
+- `evals/workshop-eval-cases.md` — manual test cases with pass criteria
 - `workshop/` — facilitator materials, not part of the plugin
 
 ## Notes for maintainers
@@ -32,6 +37,12 @@ Requires a paid Claude plan — the Code tab isn't available on the free tier.
 Plugin-provided agents ignore `hooks`, `mcpServers`, and `permissionMode` frontmatter.
 The persona written by the skill lands in `~/.claude/agents/` instead, where those fields
 work if we ever need them.
+
+The persona is activated by two mechanisms on purpose (verified 2026-08-05): the desktop app
+ignores the `agent` key in project `.claude/settings.json`, while the terminal CLI honors it.
+The `CLAUDE.md` block written to the coach's folder carries activation on desktop; the settings
+key covers the CLI and takes over if a future desktop build honors it. Both point at the same
+persona file. Don't remove either.
 
 Third-party marketplaces default to auto-update OFF. Tell coaches how to toggle it, or
 re-run install after a release.
