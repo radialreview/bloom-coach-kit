@@ -36,6 +36,13 @@ conversation.
 **{{NAME}} feels like a different person / forgot who I am.**
 Tell them: "read your notes about me." That usually sorts it.
 
+**Claude says I'm running low on usage, or asks me about switching models.**
+Claude comes in a few sizes, and the app shows the current one near the message box — a name
+like "Opus" or "Sonnet." Bigger sizes use up your plan's allowance faster, and {{NAME}} doesn't
+need the biggest one for day-to-day work. If you're bumping into limits, click that name and
+pick **Sonnet** — {{NAME}} stays exactly who they are, remembers everything, and your allowance
+goes a lot further. You can switch back any time.
+
 **Something else.**
 Email Mike Benner at michael.b@bloomgrowth.com. Tell him what you asked {{NAME}} for and what
 happened instead — that's usually enough to sort it out without a call.

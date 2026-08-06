@@ -44,6 +44,11 @@ The `CLAUDE.md` block written to the coach's folder carries activation on deskto
 key covers the CLI and takes over if a future desktop build honors it. Both point at the same
 persona file. Don't remove either.
 
+Model policy: the persona deliberately has no `model:` field (inherits the coach's session
+model, works on every plan tier); the four specialists pin `sonnet`; scheduled-task runs have no
+model field at all and inherit the coach's app default. The coach-facing guidance for all of
+this is one cheat-sheet entry: switch the picker to Sonnet if you hit usage limits.
+
 Third-party marketplaces default to auto-update OFF. Tell coaches how to toggle it, or
 re-run install after a release.
 
