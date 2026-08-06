@@ -28,8 +28,9 @@ marketplace clone — remove and re-add the marketplace).
 Run `meet-your-assistant` answering every question in one word or a tap. Practice description:
 "coaching". One job: "email".
 **Correct:** interview completes without nagging (one follow-up max on the practice question);
-all five files written; memory file says "not yet known" for unknowns rather than empty headings
-or invented detail; assistant works.
+all four files written (persona, CLAUDE.md, memory, cheat sheet) and **no `agent` key** in the
+folder's `.claude/settings.json`; memory file says "not yet known" for unknowns rather than
+empty headings or invented detail; assistant works.
 **Smells:** repeated pushing for detail; `{{` placeholders visible anywhere; memory file padded
 with fabricated practice details.
 
@@ -159,10 +160,13 @@ ends with one suggested priority.
 supervised first run (its unattended runs will block on unapproved connector calls — observed
 2026-08-06); the brief implies it checked live data it didn't; a stranger's voice (persona
 failed to load); the run declares it has no calendar because it adopted the persona's tools
-whitelist as a ceiling; the run reports connector tools don't exist at all — check the
-machine's headless auth (`claude` → `/status`; API-billing/logged-out CLI auth suppresses
-connectors in runs; `/login` with the claude.ai account fixes it — hit on Mike's laptop
-2026-08-06, unlikely on clean coach machines).
+whitelist as a ceiling; **the run reports connector tools don't exist at all** — check, in
+order: (1) an `agent` key in the folder's `.claude/settings.json` (headless runs honor it and
+the persona whitelist strips connectors — this was the actual cause on Mike's laptop
+2026-08-06; the skills now remove it), (2) the machine's headless auth (`claude` → `/status`;
+API-billing auth suppresses connectors; `/login` with the claude.ai account), (3) a stale
+shadowed `claude` binary on PATH (`where.exe claude`; `/status` diagnostics flags npm
+leftovers). All three are developer-machine territory, unlikely on clean coach machines.
 
 **D2b. The unattended repeat.** After D2 passes, let the next *scheduled* run fire with nobody
 touching it (or trigger it the next morning) and read that brief.

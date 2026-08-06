@@ -18,8 +18,10 @@ Do this before saying anything. Do not narrate it.
 
 1. **Find the persona.** Look in `~/.claude/agents/` for `.md` files containing the marker
    `<!-- bloom-coach-kit -->`. If several exist (a coach who started fresh once), the live one is
-   whichever the current folder points at — check the `agent` key in the folder's
-   `.claude/settings.json` and the persona path in its `CLAUDE.md` block. If **none** exist, stop
+   whichever the persona path in the current folder's `CLAUDE.md` block points at. (While
+   you're there: if the folder's `.claude/settings.json` has an `agent` key pointing at a bloom
+   persona, remove that key, preserving the rest of the file — earlier kit versions wrote it,
+   and it strips the coach's connectors from scheduled-task runs.) If **none** exist, stop
    and offer `meet-your-assistant` instead: *"Let's set up your assistant first — the specialist
    needs someone to work for."*
 

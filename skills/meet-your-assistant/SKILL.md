@@ -96,13 +96,22 @@ Free text. This feeds their memory file and their commitment card.
 
 ---
 
-## Phase 3 — Write the five files
+## Phase 3 — Write the four files
 
 Derive a slug from the name: lowercase, spaces to hyphens, strip anything that isn't a letter,
 number, or hyphen. `Sol` → `sol`. `Ms. Marple` → `ms-marple`.
 
-Write all five. Use the templates in `assets/`. Substitute every `{{PLACEHOLDER}}` — a template
+Write all four. Use the templates in `assets/`. Substitute every `{{PLACEHOLDER}}` — a template
 that still contains `{{` when you write it out is a bug the coach will see.
+
+**Do NOT write an `agent` key into the folder's `.claude/settings.json`.** Earlier versions of
+this kit did, and it broke the morning brief invisibly: desktop GUI sessions ignore the key, but
+**headless scheduled-task runs honor it** — they load the persona as a real agent, its `tools:`
+whitelist is mechanically enforced, and every connector (calendar, email) is stripped from the
+run. Verified live 2026-08-06: same task, same prompt — key present, no calendar; key removed,
+live events. If the folder's settings already contain an `agent` key pointing at a persona with
+the `<!-- bloom-coach-kit -->` marker, **remove that key** (preserve everything else in the
+file) — it's a leftover from an earlier install.
 
 Where the content comes from:
 
@@ -171,35 +180,22 @@ Keep the `<!-- bloom-coach-kit -->` marker line in the body. That's what Phase 1
 re-run. It must stay *below* the closing `---` — anything above the opening `---` stops the
 frontmatter from being read at all, and the persona silently loses its name, roster, and memory.
 
-### 2. The default-agent wiring — `.claude/settings.json` in their folder
-
-Set `"agent": "{{SLUG}}"`.
-
-**Merge, don't overwrite.** If the file already exists, read it, add or replace only the `agent`
-key, and preserve everything else. Clobbering a coach's existing settings is the kind of thing
-they won't notice until something else breaks a week later.
-
-Use the project folder, not the user-level settings file — project scope is the documented
-placement for this key and coaches work out of one folder anyway.
-
-### 3. The desktop activation — `CLAUDE.md` in their folder
+### 2. The activation — `CLAUDE.md` in their folder
 
 From `assets/claude-md-template.md`. Fill `{{PERSONA_PATH}}` and `{{MEMORY_PATH}}` with the real
-absolute paths of the files from steps 1 and 4.
+absolute paths of the files from steps 1 and 3.
 
-This file exists because of a verified gap: **desktop app sessions currently ignore the `agent`
-setting** that step 2 writes — the terminal CLI honors it, the desktop app does not, and the
-coaches live in the desktop app. `CLAUDE.md` is project memory, which every session in the folder
-loads on every platform, so it carries the activation instead: it tells the session to read the
-persona file and become {{NAME}} before its first reply. Keep step 2 anyway — it costs nothing,
-it makes the CLI work, and it makes the persona official the day the desktop honors it. Both
-mechanisms point at the same persona file, so they cannot disagree.
+This is the **only** activation mechanism, on purpose. `CLAUDE.md` is project memory — every
+session in the folder loads it, on every surface: desktop GUI, terminal CLI, and scheduled-task
+runs. It tells the session to read the persona file and become {{NAME}} before its first reply,
+while leaving the session's own toolset intact — which is what keeps connectors reachable in
+scheduled runs. (The `agent` settings key was tried and removed; see the Phase 3 warning above.)
 
 **Merge, don't overwrite.** If a `CLAUDE.md` already exists in the folder, replace only the block
 between `<!-- bloom-coach-kit:persona -->` and `<!-- /bloom-coach-kit:persona -->` if present, or
 append the block at the end if not. Never touch anything else in the file.
 
-### 4. Seeded memory — `~/.claude/agent-memory/{{SLUG}}/about-my-coach.md`
+### 3. Seeded memory — `~/.claude/agent-memory/{{SLUG}}/about-my-coach.md`
 
 From `assets/coach-memory-template.md`. Built from answers 3, 4, and 6.
 
@@ -208,7 +204,7 @@ directory persists across every future conversation — so the assistant knows t
 contact instead of starting cold. Write it as notes an assistant would keep about their boss:
 specific, useful, no filler.
 
-### 5. The cheat sheet — `MY-ASSISTANT.md` in their folder
+### 4. The cheat sheet — `MY-ASSISTANT.md` in their folder
 
 From `assets/my-assistant-template.md`. Plain English, no jargon. Written for a coach who finds
 it three weeks from now, confused, without you in the room. Include the name, what each

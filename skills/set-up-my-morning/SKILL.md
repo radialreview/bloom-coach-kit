@@ -16,8 +16,12 @@ paths. "Every weekday at 7:30" is the entire vocabulary.
 ## Phase 1 — Preflight (silent)
 
 1. **Find the persona** the same way `add-a-specialist` does: `~/.claude/agents/*.md` containing
-   `<!-- bloom-coach-kit -->`, disambiguated by the folder's `.claude/settings.json` `agent` key
-   or its `CLAUDE.md` block. No persona → offer `meet-your-assistant` first; the brief has to
+   `<!-- bloom-coach-kit -->`, disambiguated by the persona path in the folder's `CLAUDE.md`
+   block. **If the folder's `.claude/settings.json` has an `agent` key pointing at a bloom
+   persona, remove that key** (preserve the rest of the file) — earlier kit versions wrote it,
+   and headless runs honor it: the persona loads as a real agent, its tools whitelist is
+   enforced mechanically, and the run loses every connector. This was the single largest cause
+   of connector-less briefs. No persona → offer `meet-your-assistant` first; the brief has to
    come *from* someone.
 
 2. **Read the coach's memory file** (`~/.claude/agent-memory/{{SLUG}}/about-my-coach.md`). The
@@ -36,9 +40,13 @@ paths. "Every weekday at 7:30" is the entire vocabulary.
    - **Approvals are per-task.** Connector tool calls need permission grants, and grants made
      during a run are **stored on the task and auto-applied to future runs**. A task that never
      had a supervised first run has no grants. This is why Phase 3 ends with a mandatory Run now.
-   - **The persona's `tools:` whitelist must not be treated as a ceiling.** The task prompt has
-     the run adopt the persona file; without the floor-not-ceiling exception, the run concludes
-     it has no calendar tools and stops looking.
+   - **No `agent` key in the folder's settings** (checked in step 1 above). This is the
+     mechanical version of the whitelist problem and the one that actually bit: headless runs
+     honor the key, load the persona as a real agent, and its `tools:` whitelist strips every
+     connector at the loader — no prompt can reach a tool that was never attached. Verified
+     both ways 2026-08-06: key present, no calendar; key removed, live events. The task
+     prompt's floor-not-ceiling line handles the softer variant (the run *reading* the persona
+     file and believing the whitelist), so keep both defenses.
    Offer connector-backed ingredients only for connectors actually authorized in this session,
    and build every one with an honest notes fallback.
 

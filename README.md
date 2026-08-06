@@ -38,11 +38,14 @@ Plugin-provided agents ignore `hooks`, `mcpServers`, and `permissionMode` frontm
 The persona written by the skill lands in `~/.claude/agents/` instead, where those fields
 work if we ever need them.
 
-The persona is activated by two mechanisms on purpose (verified 2026-08-05): the desktop app
-ignores the `agent` key in project `.claude/settings.json`, while the terminal CLI honors it.
-The `CLAUDE.md` block written to the coach's folder carries activation on desktop; the settings
-key covers the CLI and takes over if a future desktop build honors it. Both point at the same
-persona file. Don't remove either.
+The persona is activated by exactly one mechanism: the `CLAUDE.md` block in the coach's folder,
+which every session on every surface loads and which leaves the session's toolset intact. The
+kit deliberately does **not** write an `agent` key into the folder's `.claude/settings.json` —
+it did briefly, and the failure mode was nasty (verified both ways 2026-08-06): desktop GUI
+sessions ignore the key, but headless scheduled-task runs honor it, load the persona as a real
+agent, and mechanically enforce its `tools:` whitelist — stripping calendar/email connectors
+from every routine while everything interactive looks fine. The setup and growth skills remove
+the key if they find one from an older install.
 
 Model policy: the persona deliberately has no `model:` field (inherits the coach's session
 model, works on every plan tier); the four specialists pin `sonnet`; scheduled-task runs are
@@ -55,18 +58,17 @@ tool can't. If a coach's daily brief is eating their plan, Edit routine → Mode
 Routines also fire with a randomized delay of several minutes, so never demo one by waiting for
 its scheduled time — run it manually.
 
-Scheduled runs and connectors (final model, confirmed 2026-08-06 against a machine where they
-work and one where they didn't): account connectors (calendar, email, Slack) **are** available
-to local scheduled runs, behind three gates. First, **headless auth must be the claude.ai
-subscription login** — under API-key/console-billing auth (typical on developer machines with a
-stale CLI credential) connectors are suppressed entirely: runs complete, tools are silently
-absent. Fix: `claude` → `/status` → `/login` with the claude.ai account. Coaches on clean
-machines don't hit this. Second, **approvals are per-task**: grants made during a run are
-stored on the task and auto-applied to future runs — the supervised first run where the coach
-approves the calls is mandatory. Third, the run adopts the persona file, whose `tools:`
-whitelist must be framed as a floor, not a ceiling, or the run self-limits. Task prompts search
-for connector tools by capability, never by server ID — connector names are UUID-namespaced
-per account.
+Scheduled runs and connectors (settled 2026-08-06, confirmed both directions): account
+connectors (calendar, email, Slack) **are** available to local scheduled runs. Three gates, in
+the order they actually bit: **(1) no `agent` key in the folder settings** — headless runs
+honor it and the persona whitelist strips all connectors (see above; this was the real cause on
+the dev machine). **(2) Per-task approvals** — grants made during a run are stored on the task
+and auto-applied to future runs; the supervised first run where the coach approves the calls is
+mandatory. **(3) Headless auth must be a claude.ai login** — API-key/console auth suppresses
+connectors per the docs; rare, developer-machine territory (also check for shadowed stale
+`claude` binaries on PATH — an npm leftover from February ran with separate empty auth here).
+Task prompts search for connector tools by capability, never by server ID — connector names are
+UUID-namespaced per account.
 
 Third-party marketplaces default to auto-update OFF. Tell coaches how to toggle it, or
 re-run install after a release.
