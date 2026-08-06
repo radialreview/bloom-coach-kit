@@ -155,7 +155,9 @@ SKILL.md as Mike to check); the skill **insisted on a supervised first run**. Do
 approving the connector permission prompts when they appear, and read the brief.
 **Correct brief:** in persona voice, under 200 words, today's sessions from the **live
 calendar** (approved during the supervised run), notes for the rest, source named in a clause,
-ends with one suggested priority.
+ends with one suggested priority. **And the page:** the run publishes the brief to an artifact,
+the skill has the coach bookmark it, and the URL is saved in the assistant's memory dir
+(`morning-brief-url.txt`).
 **Smells:** a cloud/remote routine was created; the skill skipped or soft-pedaled the
 supervised first run (its unattended runs will block on unapproved connector calls — observed
 2026-08-06); the brief implies it checked live data it didn't; a stranger's voice (persona
@@ -169,12 +171,16 @@ shadowed `claude` binary on PATH (`where.exe claude`; `/status` diagnostics flag
 leftovers). All three are developer-machine territory, unlikely on clean coach machines.
 
 **D2b. The unattended repeat.** After D2 passes, let the next *scheduled* run fire with nobody
-touching it (or trigger it the next morning) and read that brief.
+touching it (or trigger it the next morning) and read that brief. (First passed 2026-08-06:
+fired 7:32 unattended — the randomized dispatch delay means 7:30 lands a few minutes after
+7:30; that's normal, not drift.)
 **Correct:** same quality as the supervised run — live calendar still works because the
-approvals persisted on the task.
+approvals persisted on the task — and the **same bookmarked page** shows today's date; no
+second artifact was minted.
 **Smells:** the supervised run worked but the unattended one fell back to notes or stalled —
 approval persistence didn't cover something the run needed; find which call was blocked and
-re-run supervised.
+re-run supervised. A new artifact URL per day — the stored-URL file isn't being read or
+written; the coach's bookmark goes stale silently.
 
 ### D3. Re-run set-up-my-morning
 Run it again, ask for 8:00 instead.

@@ -113,13 +113,27 @@ the coach's choices to memory, say plainly that this needs a fresh session, and 
 > bullet-point avalanche — this is a colleague catching you up, not a report. If a part is thin,
 > cover what you can in a clause and move on. End with the single thing you'd suggest
 > {{ADDRESS_AS}} do first today, in one sentence.
+>
+> **Step 3 — update the page.** Write the brief to
+> `{{MEMORY_DIR}}\morning-brief.md` as Markdown: first line `# {{NAME}} — {{DAY_AND_DATE}}`,
+> then the brief exactly as composed, then a final italic line noting when it was built and the
+> source (live calendar or your notes). Then check `{{MEMORY_DIR}}\morning-brief-url.txt`:
+> if it exists, publish with the Artifact tool passing that stored URL so the **same page
+> updates in place**; if it doesn't exist yet, publish fresh, then write the returned URL into
+> that file. Favicon `☀️`, keep it identical every day. Never mint a new page when a stored URL
+> exists — {{ADDRESS_AS}} has it bookmarked.
+>
+> Deliver the same brief text as your run summary too, so it reads well from the notification.
 
 **Then run it once, supervised — this step is mandatory, not a nicety.** Have the coach click
-Run now on the Routines page (or run it from here) and **approve the connector permission
-prompts when they appear**. Approvals granted during a run are stored on the task and
-auto-applied to every future run — this supervised first run is the only thing standing between
-the coach and a 7:30 brief silently blocked on a permission prompt nobody's there to answer. It
-also shows them their first brief on the spot, which is the better handoff anyway.
+Run now on the Routines page (or run it from here) and **approve the permission prompts when
+they appear** — connector calls and the Artifact publish alike. Approvals granted during a run
+are stored on the task and auto-applied to every future run — this supervised first run is the
+only thing standing between the coach and a 7:30 brief silently blocked on a permission prompt
+nobody's there to answer. It also does two more jobs: it shows them their first brief on the
+spot, and it **mints their page** — the artifact URL the run stores and reuses every morning.
+Have the coach open that page and bookmark it before you call this done; the bookmark is the
+whole point of Step 3.
 
 ---
 
@@ -127,13 +141,15 @@ also shows them their first brief on the spot, which is the better handoff anywa
 
 This part is honesty, and it's in the skill's own words because coaches deserve the real deal:
 
-> From tomorrow, {{NAME}} will have your brief ready every weekday at {{TIME}}.
+> From tomorrow, {{NAME}} will have your brief ready every weekday at {{TIME}} — and it always
+> lands on the same page, the one you just bookmarked. That's your spot: open it with your
+> coffee and the morning's brief is sitting there. No menus, no clicking around.
 >
 > One thing to know about how this works: it runs on **this computer**, so it fires when the app
 > is open. If the app is closed at {{TIME}} — laptop asleep, morning off — the brief isn't lost;
-> it runs the moment you next open the app, so {{NAME}} greets you with it when you come back.
-> What it can't do is reach you when the app isn't running — nothing lands on your phone at the
-> beach.
+> it runs the moment you next open the app, and the page catches up then. What it can't do is
+> reach you when the app isn't running — the page keeps yesterday's brief until the app wakes
+> up, so check the date at the top.
 >
 > Also: the brief pulls your live calendar where it can — we just approved that together — and
 > works from {{NAME}}'s notes for the rest. So the more {{NAME}} knows about your clients and
@@ -161,5 +177,10 @@ those are different machinery with different trade-offs, and Tuesday is not the 
   output this skill can produce.
 - **Never hardcode a connector server ID into the prompt.** They're UUID-namespaced and change;
   the prompt searches by capability at run time.
+- **One page per assistant, forever.** The stored-URL file is what prevents a new artifact
+  being minted every morning. If the coach reports "my page stopped updating," the likely
+  causes in order: the run is publishing to a fresh URL (check the url file exists and the
+  prompt passes it), the app hasn't been open yet today (check the date on the page), or the
+  publish call lost its approval (re-run supervised).
 - **Don't promise push.** The honest framing in Phase 4 is the feature. Overselling this as "your
   assistant texts you every morning" earns exactly one disappointed coach per oversell.

@@ -1,6 +1,6 @@
 {
   "name": "bloom-coach-kit",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Personal assistant kit for Bloom Growth OS coaches. Creates a named orchestrator agent with a roster of specialists.",
   "author": {
     "name": "Bloom Growth"
