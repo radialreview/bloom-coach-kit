@@ -1,0 +1,21 @@
+{
+  "name": "bloom-coach-kit",
+  "owner": {
+    "name": "Bloom Growth",
+    "email": "michael.b@bloomgrowth.com"
+  },
+  "metadata": {
+    "description": "Bloom Growth OS coaching tools for Claude Code.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "bloom-coach-kit",
+      "source": "./",
+      "description": "Personal assistant kit for Bloom Growth OS coaches. Creates a named orchestrator agent with a roster of specialists.",
+      "author": { "name": "Bloom Growth" },
+      "category": "productivity",
+      "keywords": ["coaching", "assistant", "bloom-growth-os"]
+    }
+  ]
+}
