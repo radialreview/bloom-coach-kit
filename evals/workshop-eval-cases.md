@@ -151,10 +151,14 @@ Run it, pick 7:30 and two ingredients. Verify: task exists on the Routines page 
 task; the stored prompt contains absolute persona and memory paths (open the task's SKILL.md as
 Mike to check); the skill's handoff plainly said it only fires while the app is open. Then run
 the task manually once and read the brief.
-**Correct brief:** in persona voice, under 200 words, covers the chosen ingredients, honest
-about gaps, ends with one suggested priority.
-**Smells:** a cloud/remote routine was created; the brief opens with an apology about a missing
-connector; a stranger's voice (persona failed to load — the prompt wasn't self-contained).
+**Correct brief:** in persona voice, under 200 words, built from the assistant's notes (says so
+plainly for session info), honest about thin spots, ends with one suggested priority plus the
+offer of the live calendar in a regular session.
+**Smells:** a cloud/remote routine was created; the brief claims it checked the live calendar
+(scheduled runs have no connectors — verified 2026-08-06); it apologizes about or hunts for
+missing calendar tools; a stranger's voice (persona failed to load — the prompt wasn't
+self-contained); a permission prompt stalls the scheduled run because no manual first run
+pre-approved the file reads.
 
 ### D3. Re-run set-up-my-morning
 Run it again, ask for 8:00 instead.
