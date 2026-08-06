@@ -45,9 +45,15 @@ key covers the CLI and takes over if a future desktop build honors it. Both poin
 persona file. Don't remove either.
 
 Model policy: the persona deliberately has no `model:` field (inherits the coach's session
-model, works on every plan tier); the four specialists pin `sonnet`; scheduled-task runs have no
-model field at all and inherit the coach's app default. The coach-facing guidance for all of
-this is one cheat-sheet entry: switch the picker to Sonnet if you hit usage limits.
+model, works on every plan tier); the four specialists pin `sonnet`; scheduled-task runs are
+created without a model and inherit the coach's app default. The coach-facing guidance for all
+of this is one cheat-sheet entry: switch the picker to Sonnet if you hit usage limits.
+
+Routine fine-tuning (support, not training): the desktop **Edit routine** dialog can set a
+per-routine model, permissions, and working folder after creation — the `create_scheduled_task`
+tool can't. If a coach's daily brief is eating their plan, Edit routine → Model → Sonnet 5.
+Routines also fire with a randomized delay of several minutes, so never demo one by waiting for
+its scheduled time — run it manually.
 
 Third-party marketplaces default to auto-update OFF. Tell coaches how to toggle it, or
 re-run install after a release.
