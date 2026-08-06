@@ -23,13 +23,19 @@ paths. "Every weekday at 7:30" is the entire vocabulary.
 2. **Read the coach's memory file** (`~/.claude/agent-memory/{{SLUG}}/about-my-coach.md`). The
    one-job answer and any client names shape what the brief should contain.
 
-3. **Know how scheduled runs reach connectors — it's gated, not absent.** The coach's
-   connectors (calendar, email) are available to scheduled runs, but behind two gates that have
-   both silently broken briefs before (observed 2026-08-06):
+3. **Know how scheduled runs reach connectors — it's gated, not absent.** Local scheduled runs
+   can and do call the coach's connectors unattended (verified 2026-08-05 on a working machine:
+   calendar, Gmail, Slack, 13 runs a day). Three gates, each observed silently breaking briefs:
+   - **The machine's headless auth must be the claude.ai login.** Connectors are fetched only
+     under a claude.ai subscription login; when API-key or console-billing auth is active for
+     CLI/headless runs, they're suppressed entirely — runs complete but the tools are simply
+     absent, with no error. Coaches signing in through the app normally never hit this; a
+     machine with developer history can (a stale CLI credential). If a run reports no connector
+     tools exist, this is the first thing to check: `claude` in a terminal, `/status`, and
+     `/login` with the claude.ai account if it shows anything else.
    - **Approvals are per-task.** Connector tool calls need permission grants, and grants made
      during a run are **stored on the task and auto-applied to future runs**. A task that never
-     had a supervised first run has no grants, and its unattended runs find the tools blocked.
-     This is why Phase 3 ends with a mandatory Run now.
+     had a supervised first run has no grants. This is why Phase 3 ends with a mandatory Run now.
    - **The persona's `tools:` whitelist must not be treated as a ceiling.** The task prompt has
      the run adopt the persona file; without the floor-not-ceiling exception, the run concludes
      it has no calendar tools and stops looking.

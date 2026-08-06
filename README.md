@@ -55,15 +55,18 @@ tool can't. If a coach's daily brief is eating their plan, Edit routine → Mode
 Routines also fire with a randomized delay of several minutes, so never demo one by waiting for
 its scheduled time — run it manually.
 
-Scheduled runs and connectors (corrected 2026-08-06 — an earlier note here claimed runs never
-get connectors; that was wrong): account connectors (calendar, email, Slack) **are** available
-to scheduled runs, behind two gates. First, **approvals are per-task**: connector tool calls
-need permission grants, and grants made during a run are stored on the task and auto-applied to
-future runs — so a supervised first run where the coach approves the calls is mandatory, or
-unattended runs find the tools blocked. Second, the run adopts the persona file, whose `tools:`
-whitelist must be framed as a floor, not a ceiling, or the run self-limits and never looks for
-the connector. The task prompt searches for connector tools by capability, never by server ID —
-connector names are UUID-namespaced and unstable.
+Scheduled runs and connectors (final model, confirmed 2026-08-06 against a machine where they
+work and one where they didn't): account connectors (calendar, email, Slack) **are** available
+to local scheduled runs, behind three gates. First, **headless auth must be the claude.ai
+subscription login** — under API-key/console-billing auth (typical on developer machines with a
+stale CLI credential) connectors are suppressed entirely: runs complete, tools are silently
+absent. Fix: `claude` → `/status` → `/login` with the claude.ai account. Coaches on clean
+machines don't hit this. Second, **approvals are per-task**: grants made during a run are
+stored on the task and auto-applied to future runs — the supervised first run where the coach
+approves the calls is mandatory. Third, the run adopts the persona file, whose `tools:`
+whitelist must be framed as a floor, not a ceiling, or the run self-limits. Task prompts search
+for connector tools by capability, never by server ID — connector names are UUID-namespaced
+per account.
 
 Third-party marketplaces default to auto-update OFF. Tell coaches how to toggle it, or
 re-run install after a release.

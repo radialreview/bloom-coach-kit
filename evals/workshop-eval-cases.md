@@ -159,7 +159,10 @@ ends with one suggested priority.
 supervised first run (its unattended runs will block on unapproved connector calls — observed
 2026-08-06); the brief implies it checked live data it didn't; a stranger's voice (persona
 failed to load); the run declares it has no calendar because it adopted the persona's tools
-whitelist as a ceiling.
+whitelist as a ceiling; the run reports connector tools don't exist at all — check the
+machine's headless auth (`claude` → `/status`; API-billing/logged-out CLI auth suppresses
+connectors in runs; `/login` with the claude.ai account fixes it — hit on Mike's laptop
+2026-08-06, unlikely on clean coach machines).
 
 **D2b. The unattended repeat.** After D2 passes, let the next *scheduled* run fire with nobody
 touching it (or trigger it the next morning) and read that brief.
