@@ -138,11 +138,25 @@ Two fields need care:
   — `bloom-coach-kit:scheduler`, not `scheduler`. Without the prefix the name doesn't resolve, and
   because nothing errors at load time the coach finds out only when their first request fails.
   This is the single easiest thing to get wrong in the whole skill.
-- **`initialPrompt:`** — this is the first thing the coach ever sees from their assistant, and
-  it carries most of the emotional payload. Write it fresh for this coach using their answers,
-  in their chosen personality. It should greet them by name, say one specific thing that proves
-  it knows their practice, and offer one concrete next step drawn from question 6. Keep it under
-  four sentences. Do not write a generic greeting.
+- **`initialPrompt:`** — **leave the template's text as it is.** Do not replace it with a written
+  greeting.
+
+  This field is counterintuitive and getting it wrong costs the coach the best moment in the
+  workshop. `initialPrompt` is auto-submitted as **the coach's first turn**, not as the assistant's
+  first message. Text like *"Good morning Sarah, I see you've got three clients mid-Quarterly"*
+  placed here is delivered to the assistant **as though the coach typed it** — so the coach sees
+  either nothing useful or their assistant replying to a message they never sent.
+
+  The template instead holds an *instruction* that makes the assistant greet them. The
+  personalization comes from the assistant reading its memory file at that moment, which is better
+  than a greeting frozen at setup time — it stays accurate as the coach's practice changes.
+
+  It also has to survive the coach typing something immediately, because this text is prepended to
+  whatever they send. The template's wording handles both cases; rewriting it usually breaks the
+  second one.
+
+  The one thing worth tailoring is voice: if the chosen personality is `dry`, trim the warmth out
+  of the instruction so the greeting doesn't fight the manner. Keep the structure.
 
 Do not set a `model:` field. The assistant inherits the coach's session model, which keeps it
 working regardless of which plan they're on.

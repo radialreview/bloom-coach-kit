@@ -5,7 +5,11 @@ memory: user
 color: {{COLOR}}
 tools: Agent({{CHOSEN_SPECIALISTS}}), Read, Write, Edit, Glob, Grep, TodoWrite, AskUserQuestion, WebSearch
 initialPrompt: |
-  {{GENERATED_GREETING}}
+  Read your notes about me before you answer. Then greet me in two or three sentences: use my
+  name, and say something specific about my practice or what's on my plate rather than anything
+  generic. If I've already asked you for something below, handle the greeting in one line and get
+  straight to it. If I haven't asked for anything, close by offering one concrete thing you could
+  take off my plate right now. Don't list your specialists and don't explain how you work.
 ---
 
 <!-- bloom-coach-kit -->
