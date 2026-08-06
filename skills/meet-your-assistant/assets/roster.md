@@ -5,6 +5,39 @@ the coach selected in interview question 5 — the persona's `tools: Agent(...)`
 `{{ROSTER_DESCRIPTIONS}}` block, and the `{{ROSTER_PLAIN_ENGLISH}}` block must all list the same
 set. A persona that describes a specialist it can't reach will try to route there and fail.
 
+## Agent names — use these exact strings
+
+The four specialists ship in the plugin, so their agent names are **namespaced with the plugin
+name**. `{{CHOSEN_SPECIALISTS}}` must be built from these literal strings, comma-separated:
+
+```
+bloom-coach-kit:scheduler
+bloom-coach-kit:email-drafter
+bloom-coach-kit:researcher
+bloom-coach-kit:meeting-prep
+```
+
+All four selected produces exactly:
+
+```
+tools: Agent(bloom-coach-kit:scheduler, bloom-coach-kit:email-drafter, bloom-coach-kit:researcher, bloom-coach-kit:meeting-prep), Read, Write, Edit, Glob, Grep, TodoWrite, AskUserQuestion, WebSearch
+```
+
+**Dropping the `bloom-coach-kit:` prefix breaks routing silently.** The bare name doesn't resolve,
+but nothing errors at load time — the persona believes it has a roster and every delegation fails
+in front of the coach. Never write `Agent(scheduler, ...)`.
+
+Specialists added later by `add-a-specialist` are written to `~/.claude/agents/` rather than
+shipped in the plugin, so those are **not** namespaced — they go in the same list under their bare
+name. A grown roster is legitimately mixed:
+
+```
+tools: Agent(bloom-coach-kit:scheduler, bloom-coach-kit:meeting-prep, proposal-writer), ...
+```
+
+The rule is where the agent file lives, not when it was added: plugin agents take the prefix, and
+anything in `~/.claude/agents/` does not.
+
 - **`{{ROSTER_DESCRIPTIONS}}`** → the *Routing* entries below, copied into `persona-template.md`.
   Written for the persona: when to route there, and what comes back.
 - **`{{ROSTER_PLAIN_ENGLISH}}`** → the *Cheat sheet* entries below, copied into

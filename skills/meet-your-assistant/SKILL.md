@@ -132,6 +132,12 @@ Two fields need care:
   question 5. This is what makes the assistant aware of its actual roster instead of guessing
   at agents that aren't there. The `{{ROSTER_DESCRIPTIONS}}` block must list exactly the same
   set — pull both from `assets/roster.md`.
+
+  **Copy the agent names verbatim from `assets/roster.md`. Do not retype them from the question 5
+  labels.** The specialists ship in the plugin, so each name carries the `bloom-coach-kit:` prefix
+  — `bloom-coach-kit:scheduler`, not `scheduler`. Without the prefix the name doesn't resolve, and
+  because nothing errors at load time the coach finds out only when their first request fails.
+  This is the single easiest thing to get wrong in the whole skill.
 - **`initialPrompt:`** — this is the first thing the coach ever sees from their assistant, and
   it carries most of the emotional payload. Write it fresh for this coach using their answers,
   in their chosen personality. It should greet them by name, say one specific thing that proves
