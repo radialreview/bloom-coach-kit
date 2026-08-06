@@ -55,14 +55,15 @@ tool can't. If a coach's daily brief is eating their plan, Edit routine → Mode
 Routines also fire with a randomized delay of several minutes, so never demo one by waiting for
 its scheduled time — run it manually.
 
-Scheduled runs and connectors (verified 2026-08-06): scheduled-task runs are headless — they get
-file tools plus MCP servers found in config files. Account-level connectors (calendar, email)
-are injected into interactive sessions at runtime and **never attach to a scheduled run**; no
-prompt can compensate. The morning brief is therefore notes-based by design and offers the live
-calendar in-session. The config-level MCP server route (own credentials in `.mcp.json`) would
-lift this, but it's per-provider OAuth setup — follow-up-webinar material, not coach setup.
-Related: tool approvals granted during a run are stored on the task, so the skill's manual first
-run pre-approves file reads and keeps unattended runs from stalling on permission prompts.
+Scheduled runs and connectors (corrected 2026-08-06 — an earlier note here claimed runs never
+get connectors; that was wrong): account connectors (calendar, email, Slack) **are** available
+to scheduled runs, behind two gates. First, **approvals are per-task**: connector tool calls
+need permission grants, and grants made during a run are stored on the task and auto-applied to
+future runs — so a supervised first run where the coach approves the calls is mandatory, or
+unattended runs find the tools blocked. Second, the run adopts the persona file, whose `tools:`
+whitelist must be framed as a floor, not a ceiling, or the run self-limits and never looks for
+the connector. The task prompt searches for connector tools by capability, never by server ID —
+connector names are UUID-namespaced and unstable.
 
 Third-party marketplaces default to auto-update OFF. Tell coaches how to toggle it, or
 re-run install after a release.

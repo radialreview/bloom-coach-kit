@@ -147,18 +147,27 @@ got a new line. Then new session: ask the assistant to draft a proposal and conf
 brief warns about); existing entries renamed or "tidied"; the coach was shown YAML.
 
 ### D2. ⚠ set-up-my-morning
-Run it, pick 7:30 and two ingredients. Verify: task exists on the Routines page as a **local**
-task; the stored prompt contains absolute persona and memory paths (open the task's SKILL.md as
-Mike to check); the skill's handoff plainly said it only fires while the app is open. Then run
-the task manually once and read the brief.
-**Correct brief:** in persona voice, under 200 words, built from the assistant's notes (says so
-plainly for session info), honest about thin spots, ends with one suggested priority plus the
-offer of the live calendar in a regular session.
-**Smells:** a cloud/remote routine was created; the brief claims it checked the live calendar
-(scheduled runs have no connectors — verified 2026-08-06); it apologizes about or hunts for
-missing calendar tools; a stranger's voice (persona failed to load — the prompt wasn't
-self-contained); a permission prompt stalls the scheduled run because no manual first run
-pre-approved the file reads.
+Run it, pick 7:30 and two ingredients including today's sessions. Verify: task exists on the
+Routines page as a **local** task; the stored prompt contains absolute persona and memory paths
+and searches for connector tools by capability, not a hardcoded server ID (open the task's
+SKILL.md as Mike to check); the skill **insisted on a supervised first run**. Do that run,
+approving the connector permission prompts when they appear, and read the brief.
+**Correct brief:** in persona voice, under 200 words, today's sessions from the **live
+calendar** (approved during the supervised run), notes for the rest, source named in a clause,
+ends with one suggested priority.
+**Smells:** a cloud/remote routine was created; the skill skipped or soft-pedaled the
+supervised first run (its unattended runs will block on unapproved connector calls — observed
+2026-08-06); the brief implies it checked live data it didn't; a stranger's voice (persona
+failed to load); the run declares it has no calendar because it adopted the persona's tools
+whitelist as a ceiling.
+
+**D2b. The unattended repeat.** After D2 passes, let the next *scheduled* run fire with nobody
+touching it (or trigger it the next morning) and read that brief.
+**Correct:** same quality as the supervised run — live calendar still works because the
+approvals persisted on the task.
+**Smells:** the supervised run worked but the unattended one fell back to notes or stalled —
+approval persistence didn't cover something the run needed; find which call was blocked and
+re-run supervised.
 
 ### D3. Re-run set-up-my-morning
 Run it again, ask for 8:00 instead.

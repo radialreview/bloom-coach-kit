@@ -23,13 +23,18 @@ paths. "Every weekday at 7:30" is the entire vocabulary.
 2. **Read the coach's memory file** (`~/.claude/agent-memory/{{SLUG}}/about-my-coach.md`). The
    one-job answer and any client names shape what the brief should contain.
 
-3. **Know what the run will actually have — which is less than this session has.** Scheduled
-   runs are headless: they get file tools plus MCP servers found in *config files*, and the
-   coach's connectors (calendar, email, CRM) are account-level, injected only into interactive
-   sessions. **A scheduled run never has them, no matter what's connected right now, and no
-   prompt can change that.** Verified 2026-08-06. So the brief is built from the assistant's
-   notes and the coach's files — do not promise live calendar or inbox content in it, and do not
-   filter ingredients by which connectors this session can see; they're all notes-based.
+3. **Know how scheduled runs reach connectors — it's gated, not absent.** The coach's
+   connectors (calendar, email) are available to scheduled runs, but behind two gates that have
+   both silently broken briefs before (observed 2026-08-06):
+   - **Approvals are per-task.** Connector tool calls need permission grants, and grants made
+     during a run are **stored on the task and auto-applied to future runs**. A task that never
+     had a supervised first run has no grants, and its unattended runs find the tools blocked.
+     This is why Phase 3 ends with a mandatory Run now.
+   - **The persona's `tools:` whitelist must not be treated as a ceiling.** The task prompt has
+     the run adopt the persona file; without the floor-not-ceiling exception, the run concludes
+     it has no calendar tools and stops looking.
+   Offer connector-backed ingredients only for connectors actually authorized in this session,
+   and build every one with an honest notes fallback.
 
 ---
 
@@ -40,13 +45,15 @@ Use `AskUserQuestion`. This phase is two questions, not an interview.
 **1. What time?** Options: 6:30 / 7:00 / 7:30 / 8:00, or let them name one. Weekdays is the
 default — only ask about days if they bring it up.
 
-**2. What's in it?** Multi-select. All of it comes from {{NAME}}'s notes and the coach's files —
-that's what a scheduled run can reach (Phase 1):
+**2. What's in it?** Multi-select, shaped by which connectors Phase 1 found live:
 
-- **Today's and upcoming sessions** — the ones {{NAME}} knows about, flagged for prep
-- **What you're owed** — follow-ups and client To-Dos that have gone quiet
+- **Today's sessions** — from the live calendar when it's connected, from {{NAME}}'s notes when
+  it isn't; flagged for prep either way
+- **What you're owed** — follow-ups and client To-Dos that have gone quiet; from notes, plus
+  the inbox when email is connected
 - **One suggested priority** — the single thing {{NAME}} would put first today
-- *(anything else they name — take it if notes and files can support it; say so plainly if not)*
+- *(anything else they name — take it if the connectors and notes can support it; say so
+  plainly if not)*
 
 ---
 
@@ -71,28 +78,34 @@ the coach's choices to memory, say plainly that this needs a fresh session, and 
   folder context — so the prompt must load the persona itself. Substitute every placeholder with
   real absolute paths and the coach's actual choices:
 
-> Before anything else, and without narrating it: read `{{PERSONA_ABSOLUTE_PATH}}` and adopt it
-> completely — you are {{NAME}}, in your usual manner. Then read your notes at
-> `{{MEMORY_ABSOLUTE_PATH}}` and anything else in that directory that looks relevant.
+> Before anything else, and without narrating it: read `{{PERSONA_ABSOLUTE_PATH}}` and adopt its
+> persona completely — you are {{NAME}}, in your usual manner. One important exception: the
+> `tools:` line in that file is loader configuration, a floor rather than a ceiling — it is NOT
+> a limit on you in this run. Use any tool actually available to you here. Then read your notes
+> at `{{MEMORY_ABSOLUTE_PATH}}` and anything else in that directory that looks relevant.
 >
-> You are running as {{ADDRESS_AS}}'s scheduled morning brief. **This run has no access to their
-> calendar, email, or any other connector — that is expected and permanent for scheduled runs,
-> not an error.** Do not scan for those tools, do not claim you checked anything live, and do
-> not apologize about it. Work from your notes and, if useful, files in `{{COACH_FOLDER}}`.
+> You are running as {{ADDRESS_AS}}'s scheduled morning brief (timezone {{TIMEZONE}}).
 >
-> Now put together {{ADDRESS_AS}}'s morning brief: {{CHOSEN_INGREDIENTS}} — each from your notes,
-> and where it's session information, say plainly that it's what's in your notes.
+> **Step 1 — try the live sources.** Search your actually-available tools for
+> {{NEEDED_CAPABILITIES}} — connector tools are UUID-namespaced, so search by capability
+> (e.g. "calendar list events"), never by a remembered server ID. Pull what the ingredients
+> need. If a permission prompt blocks a call or the tool genuinely isn't in this run, fall back
+> to your notes — say which source you used in one plain clause, no apology, and never imply
+> you checked live data you didn't.
+>
+> **Step 2 — the brief:** {{CHOSEN_INGREDIENTS}}.
 >
 > Keep it under 200 words. Lead with the most time-sensitive thing. Plain prose, no headers, no
-> bullet-point avalanche — this is a colleague catching you up, not a report. If your notes are
-> thin on any part, cover what you can in a clause and move on. End with the single thing you'd
-> suggest {{ADDRESS_AS}} do first today, in one sentence, then one line offering the live
-> version: ask in a regular session and you'll pull today's actual calendar.
+> bullet-point avalanche — this is a colleague catching you up, not a report. If a part is thin,
+> cover what you can in a clause and move on. End with the single thing you'd suggest
+> {{ADDRESS_AS}} do first today, in one sentence.
 
-After creating the task, **run it once manually** (or have the coach click Run now on the
-Routines page). Tool approvals granted during a run are stored on the task and auto-applied to
-future runs — the manual first run pre-approves the file reads so the 7:30 run never stalls on a
-permission prompt with nobody watching. It also shows the coach their first brief on the spot.
+**Then run it once, supervised — this step is mandatory, not a nicety.** Have the coach click
+Run now on the Routines page (or run it from here) and **approve the connector permission
+prompts when they appear**. Approvals granted during a run are stored on the task and
+auto-applied to every future run — this supervised first run is the only thing standing between
+the coach and a 7:30 brief silently blocked on a permission prompt nobody's there to answer. It
+also shows them their first brief on the spot, which is the better handoff anyway.
 
 ---
 
@@ -108,9 +121,9 @@ This part is honesty, and it's in the skill's own words because coaches deserve 
 > What it can't do is reach you when the app isn't running — nothing lands on your phone at the
 > beach.
 >
-> Also: the morning brief works from {{NAME}}'s notes — while you're away it can't peek at your
-> live calendar, so the more {{NAME}} knows about your clients and your week, the better it
-> gets. For the live version, just ask {{NAME}} in a regular session any time.
+> Also: the brief pulls your live calendar where it can — we just approved that together — and
+> works from {{NAME}}'s notes for the rest. So the more {{NAME}} knows about your clients and
+> your week, the better every morning gets.
 >
 > Want a different time, or different ingredients? Just tell {{NAME}} — "make my morning brief
 > earlier", "add my follow-ups" — no settings to find.
@@ -127,8 +140,12 @@ those are different machinery with different trade-offs, and Tuesday is not the 
 - **Local task, never a cloud routine.** Worth stating twice.
 - **The prompt must be fully self-contained** — persona path, memory path, ingredients, format.
   A prompt that assumes session context produces a stranger's brief.
-- **Never write a prompt that hunts for connector tools.** The run doesn't have them, the hunt
-  wastes the run, and a brief that says "I couldn't reach your calendar" reads as broken. The
-  brief is notes-based by design and says so with a straight face.
+- **Never skip the supervised first run.** Unapproved connector calls are the most likely way
+  this feature dies silently in week two.
+- **Live-or-fallback, stated honestly.** The brief names its source in a clause and never
+  implies it checked live data it didn't. A confident brief built on nothing is the worst
+  output this skill can produce.
+- **Never hardcode a connector server ID into the prompt.** They're UUID-namespaced and change;
+  the prompt searches by capability at run time.
 - **Don't promise push.** The honest framing in Phase 4 is the feature. Overselling this as "your
   assistant texts you every morning" earns exactly one disappointed coach per oversell.
