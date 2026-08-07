@@ -102,8 +102,12 @@ No agenda on the wall; the actual agenda:
 
 - Stephanie triages anyone who fell behind (triage sheet order: install → setup → first use).
 - Fast coaches: `add-a-specialist` — grow the roster with something from their real practice.
-- **Remote Control demo** (Mike, once, on the projector — demo only, nothing to set up, per the
-  build brief).
+- **1:45 — "where this goes," on the projector, five minutes total, demo only:**
+  - **Remote Control** (per the build brief — nothing to set up).
+  - **Mike's Command Deck** — 60 seconds on the live page: check a box, click one link back to
+    its source, done. Framing verbatim: *"Your morning brief is this, minus the parts you
+    don't need yet. When you've got enough systems feeding you, this is where it goes —
+    that's webinar two."* Do not tour it; the point is that it exists and it's real.
 - Mike floats; Stephanie keeps the question log going — it closes out as the webinar backlog.
 
 ## Not on Tuesday (parking-lot answers, verbatim)

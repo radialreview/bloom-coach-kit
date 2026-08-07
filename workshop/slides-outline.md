@@ -184,7 +184,8 @@ Wi-Fi + Mike's email at the bottom.
 
 ### Slide 13 — Open floor menu (1:00)
 **On slide:** *Catch up (Stephanie) · Add a specialist (fast coaches: ask your assistant to
-"add a specialist") · Remote Control demo at 1:45 · Just work — we'll float.*
+"add a specialist") · 1:45 — where this goes: Remote Control + Mike's daily deck · Just work —
+we'll float.*
 
 ### Slide 14 — What's next (2:20 close)
 **On slide:** *Tomorrow ~7:30: check your bookmark · Webinar next: your brief reaches your
