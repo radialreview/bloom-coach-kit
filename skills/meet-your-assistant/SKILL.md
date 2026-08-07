@@ -126,6 +126,7 @@ Where the content comes from:
 | `initialPrompt` | **not a placeholder** — leave the template's text alone. See below |
 | `{{EXAMPLE_CLIENT}}` | a real client name from Q4 if they gave one; otherwise write the example lines with a generic "your client" phrasing rather than leaving a bracket in the file |
 | `{{DATE}}` | today's date, plainly formatted — "5 August 2026", not an ISO stamp |
+| `{{DATE_ISO}}` | today's date as `YYYY-MM-DD` (frontmatter in the memory hub) |
 
 If the coach gave a one-word answer to Q4, don't leave `{{CLIENT_COUNT}}` or `{{WEEK_SHAPE}}`
 empty — write "not yet known" and let the assistant learn it later. An empty heading reads as
@@ -203,6 +204,14 @@ This is the highest-leverage file in the set. Because the persona declares `memo
 directory persists across every future conversation — so the assistant knows the coach on first
 contact instead of starting cold. Write it as notes an assistant would keep about their boss:
 specific, useful, no filler.
+
+The template opens with a small frontmatter block — fill `{{DATE_ISO}}` with today's date as
+`YYYY-MM-DD`. This file is the **hub** of a knowledge base the assistant grows over time (one
+file per client, per kept session recap, linked with `[[wikilinks]]`); the filing rules live in
+the persona, so you don't create any other files or directories now — just the seeded hub. If
+the coach named clients in the interview, add each as a one-line `[[wikilink]]` pointer under
+Clients per the template's example, but leave creating the client files to the assistant as it
+learns.
 
 ### 4. The cheat sheet — `MY-ASSISTANT.md` in their folder
 

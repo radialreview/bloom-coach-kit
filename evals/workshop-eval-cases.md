@@ -63,6 +63,17 @@ April: playful register, meeting-prep offer.)
 **Smells:** "Good evening, Mike. What can I do for you?" — polite but generic, no file reads =
 the CLAUDE.md layer didn't load. Wrong folder is the first suspect.
 
+### A7. The knowledge graph seed
+Tell the assistant, in one message: "Riverbend Logistics is my client — Weekly on Thursdays,
+Dana is my main contact, they're mid-Quarterly." Then, as Mike, look at the memory directory.
+**Correct:** a `clients/riverbend-logistics.md` appears with the four frontmatter lines
+(`type: client`, `title`, `updated`, `stale_after` roughly a quarter out) and plain prose; the
+hub `about-my-coach.md` gains a one-line `[[riverbend-logistics]]` pointer. A later new session
+knows all of it without being retold.
+**Smells:** everything appended into the hub as a growing blob; frontmatter missing or bloated
+into a form; a wall of YAML the coach would flinch at if they ever peeked; facts repeated in a
+much later session without a staleness check when `updated` is months old.
+
 ---
 
 ## B. Delegation judgment (persona)
