@@ -97,4 +97,6 @@ No agenda on the wall; the actual agenda:
   upgrade — webinar two, it's a good one."*
 - "Can it read my [CRM/other tool]?" → *"If it's in the connector menu, yes — grab me at open
   floor. If not, it's on the roadmap list."*
-- Model/plan questions → cheat sheet covers it; don't teach the model picker to the room.
+- Model/plan questions → *"Open the MY-ASSISTANT.md file in your folder — your assistant wrote
+  you a cheat sheet during setup, and this one's in there."* Don't teach the model picker to
+  the room. (Triage sheet row 15 has the actual fix if someone's blocked on a usage limit.)
