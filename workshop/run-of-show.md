@@ -46,6 +46,21 @@ Everyone: new session in the same folder, type "good morning." Let the room have
 this is the emotional peak of the day; don't talk over it. Then one instruction: *"Tell it one
 true thing about a client — a name, where they are in the Growth Plan. That's how it learns."*
 
+Close the segment with the owner's manual, 30 seconds, verbatim:
+
+> One more thing before we put them to work. During setup, your assistant wrote you an owner's
+> manual — a file called **MY-ASSISTANT.md**, sitting in your folder. Ask for it right now, in
+> plain language: *"show me my owner's manual."* It'll pull it up.
+>
+> That file is for three weeks from now, when something looks off and I'm not in the room:
+> what each of your specialists does, things to try, what to do if the greeting stops, and who
+> to email. You never edit it — if you want something changed, tell your assistant.
+
+Why "ask for it" rather than "find the file": it works identically on Mac and Windows, it takes
+zero file-system knowledge, and it reinforces the day's one lesson — everything goes through
+the assistant. (It's a real file too — Documents folder, opens like any document — for the
+coach who wants to print it.)
+
 ## 11:00 — Connect + first delegation (20 min)
 
 - **+** menu → connect **calendar** (and email if the room is moving well). Browser OAuth,
