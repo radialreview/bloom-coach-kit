@@ -194,6 +194,12 @@ phone · You'll hear from me in two weeks — about your card.*
 > **NOTE CARD:** Tomorrow morning, before email, before Slack — check the bookmark. Your
 > assistant clocked in before you did. That feeling is the product. In two weeks I'm going
 > to ask you about exactly one thing: the sentence on your card.
+>
+> (Conference tie-in — this afternoon's five-calls-a-day session:) One more thing. Later
+> today you're going to hear that growing your practice takes five calls a day, every day.
+> When you get back to your assistant, just tell it that. Say "hold me to five calls a day."
+> Tomorrow's brief will have a window blocked for them. You now own the only accountability
+> partner that reads your calendar before you're awake.
 
 ---
 

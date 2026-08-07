@@ -65,9 +65,19 @@ default — only ask about days if they bring it up.
   it isn't; flagged for prep either way
 - **What you're owed** — follow-ups and client To-Dos that have gone quiet; from notes, plus
   the inbox when email is connected
+- **Growth calls** — a daily nudge to protect outreach time: a concrete window picked from the
+  day's open calendar gaps, their call target, and — only when {{NAME}}'s notes actually hold
+  them — a name or two worth reaching
 - **One suggested priority** — the single thing {{NAME}} would put first today
 - *(anything else they name — take it if the connectors and notes can support it; say so
   plainly if not)*
+
+If they pick **Growth calls**, ask one extra question: *"How many calls a day are you aiming
+for?"* Many Bloom coaches run a five-a-day discipline — offer 5 as the default, take whatever
+they say. Two rules for the ingredient's wording in the task prompt: the nudge must name a
+**specific window** ("your 10–11 gap"), because "make your calls today" is noise a coach reads
+past by Thursday — and it must **never invent a name to call**. Names come from the notes or
+the nudge stays about the time block; a made-up prospect kills trust in the whole brief.
 
 ---
 
