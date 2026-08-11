@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hire your assistant — Bloom coach workshop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Work+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --neutral: #FDFBF7;
+    --moss: #183832;
+    --teal: #0BBF9E;
+    --lavender: #B396DF;
+    --lavender-tint: #DCC4F3;
+    --sunflower: #FFB647;
+    --red: #E93A3A;
+    --blue: #6C9CE5;
+    --line: rgba(24, 56, 50, .16);
+    --line-light: rgba(253, 251, 247, .22);
+    --muted: rgba(24, 56, 50, .62);
+    --muted-light: rgba(253, 251, 247, .68);
+    --serif: "Fraunces", Georgia, serif;
+    --sans: "Work Sans", "Segoe UI", system-ui, sans-serif;
+    --mono: "Cascadia Code", Consolas, ui-monospace, monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #888; }
+  @page { size: 13.333in 7.5in; margin: 0; }
+
+  .slide {
+    width: 1280px; height: 720px;
+    background: var(--neutral); color: var(--moss);
+    font-family: var(--sans); font-size: 20px; line-height: 1.45;
+    position: relative; overflow: hidden;
+    page-break-after: always;
+    padding: 64px 88px 56px;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .slide.moss { background: var(--moss); color: var(--neutral); }
+
+  /* chrome-of-the-slide: wordmark + eyebrow + page number */
+  .mark {
+    position: absolute; top: 40px; left: 56px;
+    font-family: var(--sans); font-weight: 600; font-size: 17px;
+    letter-spacing: .01em; color: var(--moss);
+  }
+  .mark b { font-weight: 400; }
+  .moss .mark { color: var(--neutral); }
+  .eyebrow {
+    position: absolute; top: 42px; right: 56px;
+    font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .moss .eyebrow { color: var(--muted-light); }
+  .pageno {
+    position: absolute; bottom: 34px; right: 56px;
+    font-family: var(--mono); font-size: 12px; color: var(--muted);
+  }
+  .moss .pageno { color: var(--muted-light); }
+
+  /* decorative petals — one square corner, like the brand swatches */
+  .petal { position: absolute; z-index: 0; }
+  .content { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; justify-content: center; }
+
+  h1 { font-family: var(--serif); font-weight: 600; font-size: 96px; line-height: 1.04; letter-spacing: -.01em; }
+  h2 { font-family: var(--serif); font-weight: 600; font-size: 54px; line-height: 1.1; letter-spacing: -.005em; }
+  .kicker { font-size: 14px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--teal); margin-bottom: 26px; }
+  .moss .kicker { color: var(--teal); }
+  .sub { font-size: 22px; color: var(--muted); margin-top: 28px; }
+  .moss .sub { color: var(--muted-light); }
+
+  /* DO slides — numbered steps */
+  ol.steps { list-style: none; counter-reset: st; margin-top: 40px; max-width: 980px; }
+  ol.steps li {
+    counter-increment: st; display: flex; align-items: baseline; gap: 28px;
+    padding: 21px 0; border-bottom: 1px solid var(--line);
+    font-size: 26px; font-weight: 500;
+  }
+  ol.steps li:last-child { border-bottom: none; }
+  ol.steps li::before {
+    content: counter(st);
+    font-family: var(--serif); font-weight: 600; font-size: 34px; color: var(--teal);
+    min-width: 44px; text-align: center; flex: none;
+  }
+  ol.steps .soft { color: var(--muted); font-weight: 400; }
+  .stepnote { margin-top: 26px; font-size: 21px; font-style: italic; color: var(--muted); display: flex; align-items: center; gap: 12px; }
+  .stepnote .tick { font-style: normal; color: var(--teal); font-weight: 600; }
+
+  .mono-callout {
+    display: inline-block; font-family: var(--mono); font-size: 40px; font-weight: 600;
+    background: var(--moss); color: var(--neutral);
+    padding: 14px 36px; border-radius: 18px 18px 4px 18px;
+    letter-spacing: 0;
+  }
+  kbd {
+    font-family: var(--mono); font-size: .82em; background: rgba(24,56,50,.08);
+    padding: 3px 12px; border-radius: 8px; font-weight: 500;
+  }
+  .moss kbd { background: rgba(253,251,247,.14); }
+
+  /* big statement lines (slide 2, 14) */
+  ul.lines { list-style: none; margin-top: 10px; }
+  ul.lines li {
+    font-family: var(--serif); font-weight: 500; font-size: 46px; line-height: 1.18;
+    padding: 26px 0 26px 58px; position: relative; border-bottom: 1px solid var(--line);
+  }
+  ul.lines li:last-child { border-bottom: none; }
+  ul.lines li::before {
+    content: ""; position: absolute; left: 0; top: 44px; width: 26px; height: 26px;
+    border-radius: 13px 13px 3px 13px; background: var(--teal);
+  }
+  ul.lines li:nth-child(2)::before { background: var(--sunflower); }
+  ul.lines li:nth-child(3)::before { background: var(--lavender); }
+
+  /* diagram slide */
+  .team { display: flex; align-items: center; justify-content: center; gap: 56px; margin-top: 44px; }
+  .hub {
+    font-family: var(--serif); font-weight: 600; font-size: 34px; text-align: center;
+    background: var(--moss); color: var(--neutral);
+    width: 300px; height: 300px; border-radius: 150px 150px 24px 150px;
+    display: flex; align-items: center; justify-content: center; padding: 30px; flex: none;
+  }
+  .spokes { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .spoke {
+    font-size: 24px; font-weight: 600; padding: 30px 34px; min-width: 240px;
+    border-radius: 20px 20px 5px 20px;
+  }
+  .spoke small { display: block; font-weight: 400; font-size: 16px; color: rgba(24,56,50,.66); margin-top: 5px; }
+  .s-cal   { background: #D4F3EA; }
+  .s-write { background: #FFE9C8; }
+  .s-res   { background: #E9DDF6; }
+  .s-prep  { background: #DCE7F9; }
+
+  /* moment slides on moss */
+  .hello { font-family: var(--serif); font-weight: 600; font-size: 130px; line-height: 1.02; letter-spacing: -.01em; }
+  .hello .q { color: var(--teal); }
+
+  .cardline { font-family: var(--serif); font-weight: 500; font-size: 66px; line-height: 1.28; }
+  .blank { display: inline-block; min-width: 265px; border-bottom: 4px solid var(--teal); position: relative; top: -6px; }
+  .blank.short { min-width: 215px; border-color: var(--sunflower); }
+
+  .smallrow { margin-top: 44px; display: flex; gap: 40px; font-size: 20px; color: var(--muted-light); }
+  .smallrow span::before { content: "·"; margin-right: 40px; color: var(--teal); }
+  .smallrow span:first-child::before { content: ""; margin: 0; }
+
+  .footline { position: absolute; bottom: 34px; left: 56px; font-size: 15px; color: var(--muted); }
+  .moss .footline { color: var(--muted-light); }
+</style>
+</head>
+<body>
+
+<!-- ══════════ 1 · TITLE ══════════ -->
+<section class="slide moss">
+  <div class="petal" style="right:-120px; top:-140px; width:430px; height:430px; background:var(--lavender-tint); border-radius: 0 0 0 430px; opacity:.92"></div>
+  <div class="petal" style="right:150px; bottom:-170px; width:380px; height:380px; background:var(--teal); border-radius: 380px 380px 380px 0; opacity:.9"></div>
+  <div class="petal" style="right:-90px; bottom:110px; width:210px; height:210px; background:var(--sunflower); border-radius: 105px 105px 24px 105px;"></div>
+  <div class="mark">bloom<b> growth</b></div>
+  <div class="content">
+    <div class="kicker">Bloom coach workshop</div>
+    <h1>Hire your<br>assistant.</h1>
+    <p class="sub">Tuesday, 11 August 2026 &middot; 10:00&ndash;12:00</p>
+  </div>
+</section>
+
+<!-- ══════════ 2 · THE PROMISE ══════════ -->
+<section class="slide">
+  <div class="mark">bloom<b> growth</b></div>
+  <div class="eyebrow">The promise</div>
+  <div class="content">
+    <h2>By noon, three things are true.</h2>
+    <ul class="lines">
+      <li>Your assistant knows your practice.</li>
+      <li>It did real work for you today.</li>
+      <li>Every weekday morning it writes you a brief.</li>
+    </ul>
+  </div>
+  <div class="pageno">2</div>
+</section>
+
+<!-- ══════════ 3 · DO: INSTALL ══════════ -->
+<section class="slide">
+  <div class="mark">bloom<b> growth</b></div>
+  <div class="eyebrow">Do this now &middot; install</div>
+  <div class="content">
+    <ol class="steps" style="margin-top:0">
+      <li><span>Settings &rarr; <b>Plugins</b> &rarr; <b>Add</b> &rarr; <b>Add marketplace</b></span></li>
+      <li><span>Type exactly&nbsp;&nbsp;<span class="mono-callout">radialreview/bloom-coach-kit</span></span></li>
+      <li><span>Install <b>Bloom coach kit</b></span></li>
+      <li><span>Open a <b>new session</b> <span class="soft">&mdash; choose your Documents folder</span></span></li>
+      <li><span>Type <kbd>/</kbd> &mdash; you should see <b>meet-your-assistant</b></span></li>
+    </ol>
+    <p class="stepnote"><span class="tick">&#10003;</span> When you see it, help your neighbor.</p>
+  </div>
+  <div class="pageno">3</div>
+</section>
+
+<!-- ══════════ 4 · DO: THE INTERVIEW ══════════ -->
+<section class="slide">
+  <div class="mark">bloom<b> growth</b></div>
+  <div class="eyebrow">Do this now &middot; the interview</div>
+  <div class="content">
+    <h2 style="font-size:44px">Type <kbd style="font-size:.75em; position:relative; top:-4px">/bloom-coach-kit:meet-your-assistant</kbd></h2>
+    <ol class="steps">
+      <li><span>Six questions, about ten minutes</span></li>
+      <li><span><b>Question four is where they get good</b> <span class="soft">&mdash; spend your words there. Brief them like a new hire on day one.</span></span></li>
+      <li><span>Stuck on a name? Say so <span class="soft">&mdash; it&rsquo;ll offer some</span></span></li>
+    </ol>
+  </div>
+  <div class="pageno">4</div>
+</section>
+
+<!-- ══════════ 5 · THE HELLO ══════════ -->
+<section class="slide moss">
+  <div class="petal" style="left:-130px; bottom:-160px; width:400px; height:400px; background:var(--sunflower); border-radius: 0 400px 0 0; opacity:.95"></div>
+  <div class="mark">bloom<b> growth</b></div>
+  <div class="eyebrow">The hello</div>
+  <div class="content" style="align-items:flex-start; text-align:left; padding-left:120px">
+    <div class="kicker">New session &middot; same folder &middot; you speak first</div>
+    <div class="hello"><span class="q">&ldquo;</span>good<br>morning<span class="q">&rdquo;</span></div>
+    <p class="sub">They speak second&mdash;the moment you say hello, you&rsquo;ll see they already know you.</p>
+  </div>
+  <div class="pageno">5</div>
+</section>
+
+<!-- ══════════ 6 · DO: THE MANUAL ══════════ -->
+<section class="slide">
+  <div class="mark">bloom<b> growth</b></div>
+  <div class="eyebrow">Before we put them to work</div>
+  <div class="content">
+    <h2 style="font-size:48px">Say: <span style="color:var(--teal)">&ldquo;show me my owner&rsquo;s manual&rdquo;</span></h2>
+    <ol class="steps">
+      <li><span>Your assistant wrote it during setup <span class="soft">&mdash; it lives in your folder</span></span></li>
+      <li><span>It&rsquo;s for three weeks from now <span class="soft">&mdash; what each specialist does, what to try, who to email</span></span></li>
+      <li><span><b>Never edit it yourself</b> <span class="soft">&mdash; ask your assistant to change it. That&rsquo;s the rule for everything today.</span></span></li>
+    </ol>
+  </div>
+  <div class="pageno">6</div>
+</section>
+
+<!-- ══════════ 7 · THE TEAM ══════════ -->
+<section class="slide">
+  <div class="mark">bloom<b> growth</b></div>
+  <div class="eyebrow">How it works</div>
+  <div class="content">
+    <h2 style="text-align:center; font-size:46px">You talk to one person. They run the team.</h2>
+    <div class="team">
+      <div class="hub">Your<br>assistant</div>
+      <div class="spokes">
+        <div class="spoke s-cal">Scheduling<small>finds times that actually work</small></div>
+        <div class="spoke s-write">Writing<small>your emails, in your voice</small></div>
+        <div class="spoke s-res">Research<small>who you&rsquo;re meeting, sourced</small></div>
+        <div class="spoke s-prep">Meeting prep<small>ready before you ask</small></div>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:40px; font-size:20px; color:var(--muted)">You never pick a specialist. Say what you need&mdash;your assistant figures out who does it.</p>
+  </div>
+  <div class="pageno">7</div>
+</section>
+
+<!-- ══════════ 8 · DO: CONNECT + ASK ══════════ -->
+<section class="slide">
+  <div class="mark">bloom<b> growth</b></div>
+  <div class="eyebrow">Do this now &middot; first delegation</div>
+  <div class="content">
+    <ol class="steps" style="margin-top:0">
+      <li><span><b>+</b> menu &rarr; connect <b>Calendar</b> <span class="soft">&mdash; sign in in the browser, come back</span></span></li>
+      <li><span>Start a <b>new conversation</b></span></li>
+      <li><span>Ask one, in your own words:</span></li>
+    </ol>
+    <div style="margin:26px 0 0 72px; display:flex; flex-direction:column; gap:18px">
+      <div style="font-family:var(--serif); font-style:italic; font-size:32px">&ldquo;What&rsquo;s my week look like?&rdquo;</div>
+      <div style="font-family:var(--serif); font-style:italic; font-size:32px">&ldquo;Draft a follow-up to <span style="border-bottom:3px solid var(--sunflower)">your client</span> about their Quarterly Priorities.&rdquo;</div>
+    </div>
+  </div>
+  <div class="pageno">8</div>
+</section>
+
+<!-- ══════════ 9 · DO: SET UP YOUR MORNING ══════════ -->
+<section class="slide">
+  <div class="mark">bloom<b> growth</b></div>
+  <div class="eyebrow">Do this now &middot; your morning brief</div>
+  <div class="content">
+    <ol class="steps" style="margin-top:0">
+      <li><span>Type <kbd>/bloom-coach-kit:set-up-my-morning</kbd> <span class="soft">&mdash; two questions</span></span></li>
+      <li><span>It runs once while you watch &mdash; <b>approve what it asks</b> <span class="soft">(standing permission, granted once)</span></span></li>
+      <li><span>It ends with a page &mdash; <b style="border-bottom:4px solid var(--sunflower)">bookmark it</b> <span class="soft">&mdash; phones out is fine</span></span></li>
+      <li><span>That page rewrites itself every weekday morning</span></li>
+    </ol>
+  </div>
+  <div class="pageno">9</div>
+</section>
+
+<!-- ══════════ 10 · THE CARD ══════════ -->
+<section class="slide moss">
+  <div class="petal" style="right:-110px; top:-120px; width:330px; height:330px; background:var(--lavender); border-radius:0 0 0 330px; opacity:.85"></div>
+  <div class="mark">bloom<b> growth</b></div>
+  <div class="eyebrow">The card</div>
+  <div class="content">
+    <div class="cardline"><span class="blank"></span> will <span class="blank" style="min-width:420px"></span><br>every <span class="blank short"></span>.</div>
+    <div class="smallrow"><span>one real thing</span><span>a real cadence</span><span>sign it</span></div>
+  </div>
+  <div class="pageno">10</div>
+</section>
+
+<!-- ══════════ 11 · READ-AROUND ══════════ -->
+<section class="slide">
+  <div class="mark">bloom<b> growth</b></div>
+  <div class="content" style="text-align:center">
+    <div style="font-family:var(--serif); font-weight:500; font-size:64px">Name &middot; sentence &middot; pass.</div>
+  </div>
+  <div class="pageno">11</div>
+</section>
+
+<!-- ══════════ 12 · LUNCH ══════════ -->
+<section class="slide moss">
+  <div class="petal" style="left:-140px; top:-150px; width:380px; height:380px; background:var(--teal); border-radius:0 0 380px 0; opacity:.9"></div>
+  <div class="mark">bloom<b> growth</b></div>
+  <div class="content" style="text-align:center; align-items:center">
+    <h2 style="font-size:62px">Open floor 1:00&ndash;2:30</h2>
+    <p class="sub" style="max-width:640px; margin:28px auto 0">Bring anything broken, and anything you want your assistant to do.</p>
+  </div>
+  <div class="footline">michael.b@bloomgrowth.com</div>
+  <div class="pageno">12</div>
+</section>
+
+<!-- ══════════ 13 · OPEN FLOOR MENU ══════════ -->
+<section class="slide">
+  <div class="mark">bloom<b> growth</b></div>
+  <div class="eyebrow">Open floor</div>
+  <div class="content">
+    <ol class="steps" style="margin-top:0">
+      <li><span><b>Catching up?</b> <span class="soft">Stephanie&rsquo;s got you &mdash; raise a hand</span></span></li>
+      <li><span><b>Moving fast?</b> <span class="soft">Ask your assistant to</span> &ldquo;add a specialist&rdquo;</span></li>
+      <li><span><b>1:45</b> &mdash; where this goes: Remote Control + Mike&rsquo;s daily deck</span></li>
+      <li><span><b>Or just work</b> <span class="soft">&mdash; we&rsquo;ll float</span></span></li>
+    </ol>
+  </div>
+  <div class="pageno">13</div>
+</section>
+
+<!-- ══════════ 14 · WHAT'S NEXT ══════════ -->
+<section class="slide">
+  <div class="petal" style="right:-100px; bottom:-130px; width:330px; height:330px; background:var(--lavender-tint); border-radius:330px 0 0 0;"></div>
+  <div class="mark">bloom<b> growth</b></div>
+  <div class="eyebrow">What&rsquo;s next</div>
+  <div class="content">
+    <ul class="lines">
+      <li>Tomorrow, about 7:30&mdash;check your bookmark.</li>
+      <li>Webinar two&mdash;your brief reaches your phone.</li>
+      <li>In two weeks, you&rsquo;ll hear from me about your card.</li>
+    </ul>
+  </div>
+  <div class="pageno">14</div>
+</section>
+
+</body>
+</html>
