@@ -148,6 +148,21 @@ And the message to the assistant:
 
 ---
 
+## The two-threads demo (open floor, when someone asks "does it just freeze while it works?")
+
+Paste these back to back — do **not** wait between them:
+
+> Research Copper Peak Builders' market — residential construction in northern Colorado —
+> before their Quarterly.
+
+> While that runs — what does my Thursday look like?
+
+The assistant answers Thursday while the researcher is still out reading, then folds the
+research in when it lands. The line that names it: *"She didn't read forty web pages just now —
+someone on her team did, in their own head, and handed her one page. Your assistant's attention
+stays on you."* (This is built-in: specialists run in their own context windows, in the
+background, by default. Nothing was configured to make this happen.)
+
 ## Spare paste lines for open floor
 
 > Who am I meeting this week that I need to prep for?
