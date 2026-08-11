@@ -74,15 +74,17 @@ coach who wants to print it.)
 
 Behind schedule? Drop in this order — never compress the hello or the interview:
 
-1. **Email connector** — calendar alone carries the demo; email lands in open floor.
-2. **Morning-brief setup moves to open floor** — the MVO's "scheduled task" can be created for
+1. **Add-a-specialist segment → open floor** — it was born there and lives there happily;
+   slides 10–11 just get skipped.
+2. **Email connector** — calendar alone carries the demo; email lands in open floor.
+3. **Morning-brief setup moves to open floor** — the MVO's "scheduled task" can be created for
    the room by showing Mike's already-running one and building theirs at 1:00.
-3. **Delegation goes demo-only** — Mike's screen instead of everyone's, coaches run theirs at
+4. **Delegation goes demo-only** — Mike's screen instead of everyone's, coaches run theirs at
    open floor.
 
 On schedule? Proceed:
 
-## 11:25 — Set up my morning (25 min)
+## 11:25 — Set up my morning (20 min)
 
 Everyone runs `/bloom-coach-kit:set-up-my-morning`. Two questions, then the skill insists on a
 supervised **Run now** — coaches approve every prompt that appears (say it plainly: "this is
@@ -90,18 +92,34 @@ you giving your assistant standing permission — you do it once"). The run ends
 **everyone bookmarks it before anything else happens.** Phones out is fine — the bookmark is
 the retention mechanism.
 
-## 11:50 — Commitment cards (10 min)
+## 11:45 — Grow the team: add a specialist (10 min — the flex segment)
 
-One sentence per card: *"[Name] will [recurring task] every [cadence]."* Around the room, read
-aloud, no commentary between readers. **Photograph every card** — that's the follow-up list.
-Then lunch.
+Promoted from open floor after the dry run came in fast; it's cut #1 if the day says otherwise.
+Everyone hires the same specialist, because every coach has this exact problem: session notes
+that go nowhere. Slides 10–11 carry the script — the coach says, in their own words, *"After my
+sessions I scribble notes and never do anything with them — I want a specialist who turns my
+brain-dump into a recap."* Then narrate the three beats as they happen: it asks about the
+output (answer honestly), it proposes a name (take it or rename), it plays the job back (say
+yes). New session, and tell them to feed it real notes from a real session this week — the
+recap lands in their assistant's memory, which makes every future prep brief better. Close
+with the point: *"That's how you hire from now on. Find a job, describe it, done."*
+
+## 11:55 — The commitment (5 min, no cards)
+
+No paper — better anyway: they tell the one who'll actually remember. Slide 12 has the
+sentence: *"[Name] will [recurring task] every [cadence]."* Each coach writes it in one
+message to their assistant — **"hold me to this"** — then the read-around: name, sentence,
+pass, applause once at the end. **Stephanie writes every commitment into the log** — that's
+the two-week follow-up list. The assistant has it in its notes; the morning brief will bring
+it up. Then lunch.
 
 ## 1:00–2:30 — Open floor
 
 No agenda on the wall; the actual agenda:
 
 - Stephanie triages anyone who fell behind (triage sheet order: install → setup → first use).
-- Fast coaches: `add-a-specialist` — grow the roster with something from their real practice.
+- Fast coaches: hire *another* specialist — they know how now; this time from their own real
+  practice (proposals, invoice nudges, testimonial collection).
 - **1:45 — "where this goes," on the projector, five minutes total, demo only:**
   - **Remote Control** (per the build brief — nothing to set up).
   - **Mike's Command Deck** — 60 seconds on the live page: check a box, click one link back to

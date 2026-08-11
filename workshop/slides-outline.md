@@ -1,4 +1,28 @@
-# Slides outline — build Sunday, after the frozen-code run
+# Slides outline — SUPERSEDED IN PART: deck built early (slides-src.html / slides.pdf)
+
+> **Revision after the fast dry run — the built deck is 16 slides, not 14.** Two changes:
+> commitment cards weren't printed, so the commitment is paperless (slide 12: coach writes one
+> sentence, tells their assistant *"hold me to this,"* read-around, Stephanie logs the list);
+> and **add-a-specialist was promoted from open floor to slides 10–11**, pre-lunch, as the flex
+> segment (cut #1 if behind). Slides 10+ therefore shift by two versus the numbering below.
+>
+> **Note cards for the new/changed slides:**
+>
+> **Slide 10–11 (grow the team):** Your roster isn't fixed — when you find a job, you hire for
+> it, and you're all about to hire the same person, because every coach has this problem:
+> session notes that go nowhere. Say what's on the slide in your own words. Answer its question
+> about the output honestly — that's the whole interview. Take the name it offers. New session,
+> and this week feed it real notes from a real session — the recap goes into your assistant's
+> memory, which makes every prep brief after it smarter. That's how hiring works from now on:
+> find a job, describe it, done.
+>
+> **Slide 12 (the commitment):** No cards to hand out — better, honestly: tell the one in the
+> room who'll actually remember. One sentence, the shape on the screen. Send it to your
+> assistant with the words "hold me to this." It goes in their notes; your morning brief will
+> bring it up. Then we go around: name, sentence, pass. (STEPHANIE LOGS EVERY COMMITMENT — the
+> two-week follow-up list.)
+
+# Original outline (build reference — superseded where the revision above says so)
 
 Fourteen slides. The rule that decides slide vs screen:
 

@@ -1,3 +1,10 @@
+# Commitment card — NOT USED 11 Aug 2026 (cards weren't printed)
+
+> **Status:** superseded for this workshop. The commitment moment went paperless — slide 12,
+> coach tells their assistant "hold me to this," read-around, Stephanie logs the list. See
+> run-of-show 11:55. This file stays for future cohorts where printing happens in time; the
+> design below is unchanged.
+
 # Commitment card — print 20 on card stock, one per coach plus spares
 
 Purpose: the card is the bridge between "neat workshop" and "changed habit." One sentence,
