@@ -64,7 +64,11 @@ coach who wants to print it.)
 ## 11:00 — Connect + first delegation (20 min)
 
 - **+** menu → connect **calendar** (and email if the room is moving well). Browser OAuth,
-  approve, new conversation.
+  approve, new conversation. Say the split once: *"Google folks: Gmail and Google Calendar.
+  Microsoft folks: the one called Microsoft 365 — it's mail and calendar together."*
+- Microsoft coaches who hit **"Need admin approval"**: that's their IT provider's consent
+  screen, not a workshop problem — triage row 11a, log and move on. Their assistant works from
+  notes meanwhile.
 - Then one plain-language request each, their choice: *"What does my week look like?"* or
   *"Draft a follow-up to [real client] about their Quarterly Priorities."*
 - Call out what happened structurally, once, in one sentence: "It handed that to a specialist.
