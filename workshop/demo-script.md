@@ -9,6 +9,12 @@ Two things to say out loud when using it: the companies are made up, and your ca
 real one — so when the scheduler reads it, the room sees real Bloom-day-job events, which is
 its own honest demo of "it actually looked."
 
+**The folder:** `Documents\clients\` holds the matching fake client files — overviews, session
+notes, Quarterly Priorities, a Quarterly-prep scratchpad — four companies, nine files, all
+consistent with this script's canon. That's what makes the prep demo land: *"Get me ready for
+Thursday's Bloom Weekly with Riverbend"* comes back sourced from notes the room can see exist.
+Mention it once: "this is my sample client folder — yours is your real one."
+
 ---
 
 ## The interview (six questions)
