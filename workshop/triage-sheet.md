@@ -27,6 +27,7 @@ Rules of engagement, before the table:
 | 13 | Morning brief page (the bookmark) shows yesterday | The app wasn't open at brief time — it catches up when the app next opens. Not a bug. Check the date at the top after the app has been open a minute. |
 | 14 | Morning brief page never updates, even with the app open | Flag Mike — likely the page URL wasn't stored and runs are minting new pages. (Mike: check `memory/morning-brief-url.txt` in the coach's folder — or `agent-memory/<slug>/` on a setup predating the memory move — exists and matches the bookmark.) |
 | 15 | Coach on a Pro plan says Claude warned about usage limits | Model picker (name near the message box) → **Sonnet**. Assistant is unchanged. If it's the daily brief eating the plan: Routines → Edit routine → Model → Sonnet 5. |
+| 16 | "It only sees one of my email accounts" | Expected — the connector holds one Google account at a time, and there is no setting to change that. Not a Tuesday fix: hand them `multiple-mailboxes.md` at open floor. |
 
 **Weird ones that only happen on developer machines** (unlikely Tuesday, listed so they don't
 burn time): scheduled runs missing connectors because the folder's settings contain an `agent`
