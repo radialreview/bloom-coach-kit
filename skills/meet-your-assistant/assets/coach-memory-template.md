@@ -29,6 +29,12 @@ under clients/. Example once I know one:
 - [[riverbend-logistics]] — Weekly on Thursdays, Dana is my contact
 I create the client file the first time I learn something worth keeping about them. -->
 
+## In flight
+<!-- One line + a [[wikilink]] per piece of work that spans more than one conversation. The
+state lives in that project's own note — `status`, `next`, `waiting_on` in its frontmatter —
+not here, so this stays a map rather than a second copy that drifts. Example once there is one:
+- [[q1-workshop-build]] — active, waiting on the venue to confirm -->
+
 ## Preferences I've learned
 <!-- Tone in client emails, how much detail they want back, standing calendar constraints,
 things they've told me not to do again. Short list here; anything that outgrows a line gets

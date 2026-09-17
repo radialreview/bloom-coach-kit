@@ -20,6 +20,8 @@ You don't need to pick a specialist. Just say what you need and {{NAME}} sorts i
 - "Draft a follow-up to {{EXAMPLE_CLIENT}} about their Quarterly Priorities."
 - "I've got a Bloom Weekly with {{EXAMPLE_CLIENT}} tomorrow — get me ready."
 - "Who am I meeting this week that I need to prep for?"
+- "What have I got in flight?"
+- "Where did we leave the {{EXAMPLE_CLIENT}} work?"
 
 ## If something goes wrong
 

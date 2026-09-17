@@ -25,6 +25,7 @@ Requires a paid Claude plan — the Code tab isn't available on the free tier.
 - `skills/add-a-specialist/` — grows the roster after the workshop; wires the persona's
   `Agent(...)` line, which is the step that silently breaks routing if skipped
 - `skills/set-up-my-morning/` — creates the local weekday morning-brief task
+- `commands/projects.md` — the `/projects` view over the assistant's project notes
 - `agents/meeting-prep.md` — specialist
 - `agents/scheduler.md` — specialist
 - `agents/email-drafter.md` — specialist
@@ -46,6 +47,16 @@ sessions ignore the key, but headless scheduled-task runs honor it, load the per
 agent, and mechanically enforce its `tools:` whitelist — stripping calendar/email connectors
 from every routine while everything interactive looks fine. The setup and growth skills remove
 the key if they find one from an older install.
+
+Work-in-flight tracking is a **persona behavior first and a command second**. The persona
+template teaches the project-note convention (`type: project` plus `status`, `next`,
+`waiting_on`) and tells the assistant to answer "what have I got in flight?" in plain language.
+`commands/projects.md` is an optional shortcut over the same behavior for people who like typing
+commands — which is why the coach cheat sheet teaches the question and never the slash command.
+The kit's promise to coaches is "no commands, no special syntax"; keep it that way.
+
+`commands/` is the first command directory in the kit, so a cold install is worth checking once:
+the command should appear namespaced, the same way the skills do.
 
 Model policy: the persona deliberately has no `model:` field (inherits the coach's session
 model, works on every plan tier); the four specialists pin `sonnet`; scheduled-task runs are
