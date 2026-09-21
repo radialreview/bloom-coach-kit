@@ -207,8 +207,9 @@ specific, useful, no filler.
 
 The template opens with a small frontmatter block — fill `{{DATE_ISO}}` with today's date as
 `YYYY-MM-DD`. This file is the **hub** of a knowledge base the assistant grows over time (one
-file per client, per kept session recap, linked with `[[wikilinks]]`); the filing rules live in
-the persona, so you don't create any other files or directories now — just the seeded hub. If
+file per client, per kept session recap, per piece of work in flight, linked with
+`[[wikilinks]]`); the filing rules live in the persona, so you don't create any other files or
+directories now — just the seeded hub. If
 the coach named clients in the interview, add each as a one-line `[[wikilink]]` pointer under
 Clients per the template's example, but leave creating the client files to the assistant as it
 learns.
