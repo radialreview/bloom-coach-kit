@@ -20,7 +20,7 @@ Requires a paid Claude plan — the Code tab isn't available on the free tier.
   - `assets/personalities.md` — the four personality presets and their colors
   - `assets/roster.md` — specialist descriptions, in both persona and coach-facing wording
   - `assets/claude-md-template.md` — the folder activation block (see maintainer notes)
-  - `assets/coach-memory-template.md` — seed for `~/.claude/agent-memory/`
+  - `assets/coach-memory-template.md` — seed for the coach's `memory/` folder
   - `assets/my-assistant-template.md` — the coach's cheat sheet
 - `skills/add-a-specialist/` — grows the roster after the workshop; wires the persona's
   `Agent(...)` line, which is the step that silently breaks routing if skipped
