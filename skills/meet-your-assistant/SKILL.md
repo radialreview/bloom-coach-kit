@@ -196,12 +196,30 @@ scheduled runs. (The `agent` settings key was tried and removed; see the Phase 3
 between `<!-- bloom-coach-kit:persona -->` and `<!-- /bloom-coach-kit:persona -->` if present, or
 append the block at the end if not. Never touch anything else in the file.
 
-### 3. Seeded memory — `~/.claude/agent-memory/{{SLUG}}/about-my-coach.md`
+### 3. Seeded memory — `memory/about-my-coach.md` in their folder
 
 From `assets/coach-memory-template.md`. Built from answers 3, 4, and 6.
 
-This is the highest-leverage file in the set. Because the persona declares `memory: user`, this
-directory persists across every future conversation — so the assistant knows the coach on first
+**The memory directory goes in the coach's folder, not under `~/.claude/`.** Create `memory/`
+inside the folder from step 2 and write the hub there.
+
+Earlier kit versions put it at `~/.claude/agent-memory/{{SLUG}}/`, and that had a consequence
+nobody caught until a coach said his assistant's links never opened: the app resolves a file
+link against the folder the session is running in and **refuses any path that resolves outside
+it**. So every note the assistant cited opened nothing, and the coach was left finding files by
+filename. Two things that look like fixes and are not — both tested on 2026-09-22, so don't
+spend the afternoon on them again:
+
+- **A junction or symlink into `~/.claude/` does not help.** The containment check runs on the
+  resolved path, so the link is refused exactly as the original path was.
+- **The `~/.claude/` tree cannot be granted as an extra folder.** The request is refused for
+  that directory *and* its parent — reasonably, since it holds the CLI's own settings and
+  permissions.
+
+Keeping the notes in the coach's folder is what makes them linkable. It also puts them somewhere
+the coach can find without help, which is worth something on its own.
+
+This is the highest-leverage file in the set — it's how the assistant knows the coach on first
 contact instead of starting cold. Write it as notes an assistant would keep about their boss:
 specific, useful, no filler.
 
@@ -209,10 +227,30 @@ The template opens with a small frontmatter block — fill `{{DATE_ISO}}` with t
 `YYYY-MM-DD`. This file is the **hub** of a knowledge base the assistant grows over time (one
 file per client, per kept session recap, per piece of work in flight, linked with
 `[[wikilinks]]`); the filing rules live in the persona, so you don't create any other files or
-directories now — just the seeded hub. If
-the coach named clients in the interview, add each as a one-line `[[wikilink]]` pointer under
-Clients per the template's example, but leave creating the client files to the assistant as it
-learns.
+directories now — just `memory/` and the seeded hub. If the coach named clients in the
+interview, add each as a one-line `[[wikilink]]` pointer under Clients per the template's
+example, but leave creating the client files to the assistant as it learns.
+
+**Migrating an assistant set up before this change.** Move the directory into the folder and
+leave a link behind, so anything still pointing at the old path keeps working. Nothing is copied
+and no note is rewritten.
+
+macOS / Linux:
+
+```
+mv ~/.claude/agent-memory/<slug> "<coach folder>/memory"
+ln -s "<coach folder>/memory" ~/.claude/agent-memory/<slug>
+```
+
+Windows (PowerShell):
+
+```
+Move-Item "$HOME\.claude\agent-memory\<slug>" "<coach folder>\memory"
+New-Item -ItemType Junction -Path "$HOME\.claude\agent-memory\<slug>" -Target "<coach folder>\memory"
+```
+
+Then check the count matched and that the hub still reads through **both** paths before telling
+the coach it's done.
 
 ### 4. The cheat sheet — `MY-ASSISTANT.md` in their folder
 

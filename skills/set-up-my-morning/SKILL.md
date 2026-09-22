@@ -24,7 +24,9 @@ paths. "Every weekday at 7:30" is the entire vocabulary.
    of connector-less briefs. No persona → offer `meet-your-assistant` first; the brief has to
    come *from* someone.
 
-2. **Read the coach's memory file** (`~/.claude/agent-memory/{{SLUG}}/about-my-coach.md`). The
+2. **Read the coach's memory file** — `memory/about-my-coach.md`, in the coach's folder.
+   (Assistants set up before 2026-09 may still have it at `~/.claude/agent-memory/{{SLUG}}/`;
+   check both.) The
    one-job answer and any client names shape what the brief should contain.
 
 3. **Know how scheduled runs reach connectors — it's gated, not absent.** Local scheduled runs
