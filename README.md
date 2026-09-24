@@ -52,7 +52,7 @@ from every routine while everything interactive looks fine. The setup and growth
 the key if they find one from an older install.
 
 Work-in-flight tracking is a **persona behavior first and a command second**. The persona
-template teaches the project-note convention (`type: project` plus `status`, `next`,
+template teaches the project-note convention (`type: project` plus `state`, `next`,
 `waiting_on`) and tells the assistant to answer "what have I got in flight?" in plain language.
 `commands/projects.md` is an optional shortcut over the same behavior for people who like typing
 commands — which is why the coach cheat sheet teaches the question and never the slash command.
@@ -62,7 +62,7 @@ The kit's promise to coaches is "no commands, no special syntax"; keep it that w
 the commands should appear namespaced, the same way the skills do.
 
 **Promise tracking** is the same shape one level up. `nightly-promise-sweep` reads the day's
-meeting transcripts and writes `type: promise` notes — `to`, `made`, `due`, `status`, `source` —
+meeting transcripts and writes `type: promise` notes — `to`, `made`, `due`, `state`, `source` —
 alongside dossier updates on the people the coach met. `commands/promised.md` is the shortcut over
 those notes; the question "what did I promise?" is the thing the coach actually learns.
 
@@ -71,6 +71,26 @@ real value** — most promises are made without a date, and inventing one makes 
 something nobody asked for. And the sweep **files the commitment, not the characterization**:
 meetings contain speculation about people that should not end up in a memory file, so it records
 what was promised and links the transcript for the rest.
+
+**The notes follow the Open Knowledge Format, v0.2** (`GoogleCloudPlatform/open-knowledge-format`,
+`SPEC.md`). Conformance itself asks for very little: every note's frontmatter has to parse, and
+has to carry a `type`. But the kit also uses fields the spec defines, so it uses them the spec's
+way:
+- `stale_after` is a UTC timestamp (`2026-12-24T00:00:00Z`), not a bare date.
+- `status` isn't used for work state. OKF reserves it for `draft | stable | deprecated`, so
+  projects and promises say `state`. `/projects` and `/promised` still read `status` from older
+  notes.
+- Values containing a colon or a wikilink are quoted. Otherwise the block doesn't parse, and an
+  unquoted `[[name]]` reads as a nested list.
+- `title` and `description` are the spec's recommended fields. The hub's pointer line for a note
+  is that note's `description`.
+
+Two differences from the spec are deliberate. Links are `[[wikilinks]]` rather than markdown
+links: they resolve by name, so a note can move between folders without breaking anything, and
+both Obsidian and Claude's own memory use them. And the last-changed date is `updated:`, a plain
+date, not OKF's `generated: { by, at }`. That field is provenance the coach doesn't need yet, and
+it's banked in `phase-two/BACKLOG.md`. There's no `index.md` anywhere, which the spec allows.
+`about-my-coach.md` is the hub, and it's read by path.
 
 Model policy: the persona deliberately has no `model:` field (inherits the coach's session
 model, works on every plan tier); the four specialists pin `sonnet`; scheduled-task runs are

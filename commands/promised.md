@@ -24,20 +24,22 @@ only; you'll open the full note when they pick one.
 | `to:` | who it was promised to |
 | `made:` | the date they said it |
 | `due:` | a real date, or `unstated` |
-| `status:` | `open`, `done`, `dropped` |
+| `state:` | `open`, `done`, `dropped` |
 | `source:` | the meeting it came from |
+
+Notes written before 0.6.0 say `status:` instead of `state:`. Read it the same way.
 
 ## The table
 
 | Owed to | What | Said | Due | Age |
 
-- **Owed to** — `to:`. Strip the wikilink brackets; show the name.
+- **Owed to** — `to:`. Strip the quotes and wikilink brackets; show the name.
 - **What** — `title:`.
 - **Said** — `made:`, as a date.
 - **Due** — `due:`, or **"none given"** when it's `unstated`. Never infer one.
 - **Age** — days since `made:`, in plain words.
 
-Show only `status: open` unless they ask for everything.
+Show only `state: open` unless they ask for everything.
 
 ### Order
 
@@ -63,11 +65,12 @@ re-summarize the rows in prose.
 
 ## Closing one out
 
-When they say something is done, set `status: done` and leave the note in place. **Don't delete
+When they say something is done, set `state: done` and leave the note in place. (If the note still
+says `status:`, rename it to `state:` while you're there.) **Don't delete
 it.** The record of having closed something matters as much as the open list, and a promise that
 vanishes can't be pointed at later.
 
-If they say a promise is no longer real, `status: dropped` — and if it was made to another person,
+If they say a promise is no longer real, `state: dropped` — and if it was made to another person,
 say out loud that the other person may not know that yet. Quietly dropping something someone else
 is still waiting on is the exact failure this command exists to prevent.
 

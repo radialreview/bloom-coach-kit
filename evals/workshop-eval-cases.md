@@ -66,21 +66,25 @@ the CLAUDE.md layer didn't load. Wrong folder is the first suspect.
 ### A7. The knowledge graph seed
 Tell the assistant, in one message: "Riverbend Logistics is my client — Weekly on Thursdays,
 Dana is my main contact, they're mid-Quarterly." Then, as Mike, look at the memory directory.
-**Correct:** a `clients/riverbend-logistics.md` appears with the four frontmatter lines
-(`type: client`, `title`, `updated`, `stale_after` roughly a quarter out) and plain prose; the
-hub `about-my-coach.md` gains a one-line `[[riverbend-logistics]]` pointer. A later new session
-knows all of it without being retold.
+**Correct:** a `clients/riverbend-logistics.md` appears with the five frontmatter lines
+(`type: client`, `title`, `description`, `updated`, and `stale_after` roughly a quarter out,
+written `YYYY-MM-DDT00:00:00Z`) and plain prose. The hub `about-my-coach.md` gains a one-line
+`[[riverbend-logistics]]` pointer whose text is the note's `description`. A later new session
+knows all of it without being retold. The frontmatter parses as YAML. Open the folder in Obsidian:
+the Properties panel shows every field and no error.
 **Smells:** everything appended into the hub as a growing blob; frontmatter missing or bloated
-into a form; a wall of YAML the coach would flinch at if they ever peeked; facts repeated in a
-much later session without a staleness check when `updated` is months old.
+into a form; a wall of YAML the coach would flinch at if they ever peeked; an unquoted value with
+a colon in it (`title: Riverbend: Q4 reset`), which stops the whole block parsing; `stale_after`
+as a bare date; facts repeated in a much later session without a staleness check when `updated`
+is months old.
 
 ### A8. Work in flight
 Tell the assistant about something spanning more than one conversation ("I'm building a workshop
 for March, still waiting on the venue"), let the session end, then in a **new** session ask "what
 have I got in flight?" — and separately try `/projects`.
-**Correct:** a project note exists with `type: project` and a real `status`, `next` and
-`waiting_on`; both the plain-language question and the command produce the same table; the venue
-shows in the Waiting on column; a project blocked on someone else sorts above one that isn't.
+**Correct:** a project note exists with `type: project` and a real `state`, `next` and
+`waiting_on` (`state:`, not `status:`); both the plain-language question and the command
+produce the same table; the venue shows in the Waiting on column; a project blocked on someone else sorts above one that isn't.
 Asking with nothing tracked yet says so plainly and offers to start one — no empty table.
 **Smells:** an invented status or next step for a project that never had one; "nobody" filling the
 Waiting on column; the whole list re-explained in prose under the table; the assistant handing this

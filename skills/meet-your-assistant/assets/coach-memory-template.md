@@ -1,6 +1,7 @@
 ---
 type: coach
 title: About {{COACH_NAME}}
+description: How {{COACH_NAME}} works, and a pointer to every other note I keep
 updated: {{DATE_ISO}}
 ---
 
@@ -24,14 +25,14 @@ This is the thing I should be proactively useful about. If I can see an opportun
 handle a piece of it without being asked, I raise it.
 
 ## Clients
-<!-- One line + a [[wikilink]] per client; the full picture lives in that client's own file
-under clients/. Example once I know one:
+<!-- One line + a [[wikilink]] per client; the line is that client note's `description:`, and the
+full picture lives in the note itself under clients/. Example once I know one:
 - [[riverbend-logistics]] — Weekly on Thursdays, Dana is my contact
 I create the client file the first time I learn something worth keeping about them. -->
 
 ## In flight
 <!-- One line + a [[wikilink]] per piece of work that spans more than one conversation. The
-state lives in that project's own note — `status`, `next`, `waiting_on` in its frontmatter —
+state lives in that project's own note — `state`, `next`, `waiting_on` in its frontmatter —
 not here, so this stays a map rather than a second copy that drifts. Example once there is one:
 - [[q1-workshop-build]] — active, waiting on the venue to confirm -->
 

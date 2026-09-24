@@ -87,13 +87,21 @@ Each promise becomes its own note with this frontmatter:
 
 ```
 type: promise
-title: <what, in their words where possible>
-to: <who it was promised to>
-made: <the date it was said>
+title: "<what, in their words where possible>"
+description: "<one sentence: owed to whom, by when, said where>"
+to: "[[<person-slug>]]"
+made: <the date it was said, YYYY-MM-DD>
 due: <a real date, or: unstated>
-status: open
-source: <meeting name and date>
+state: open
+source: "<meeting name and date>"
+updated: <today, YYYY-MM-DD>
+stale_after: <a quarter out, as YYYY-MM-DDT00:00:00Z>
 ```
+
+Keep the double quotes. Titles and sources routinely contain a colon, and an unquoted
+`[[wikilink]]` reads as a nested list rather than a name. Either one breaks the frontmatter for
+anything that reads these notes as data. It's `state:`, not `status:`: the note format reserves
+`status:` for whether the note itself is current, not whether the promise is.
 
 Then the body: what was actually said, enough context to act without re-reading the transcript,
 and **a link back to the transcript**. Every promise carries its source. If they doubt one, the
