@@ -25,7 +25,10 @@ Requires a paid Claude plan — the Code tab isn't available on the free tier.
 - `skills/add-a-specialist/` — grows the roster after the workshop; wires the persona's
   `Agent(...)` line, which is the step that silently breaks routing if skipped
 - `skills/set-up-my-morning/` — creates the local weekday morning-brief task
+- `skills/nightly-promise-sweep/` — creates the local nightly transcript sweep: files what the
+  coach promised, updates what it knows about the people they met, leaves a morning list
 - `commands/projects.md` — the `/projects` view over the assistant's project notes
+- `commands/promised.md` — the `/promised` view over what the coach owes, and to whom
 - `agents/meeting-prep.md` — specialist
 - `agents/scheduler.md` — specialist
 - `agents/email-drafter.md` — specialist
@@ -56,7 +59,18 @@ commands — which is why the coach cheat sheet teaches the question and never t
 The kit's promise to coaches is "no commands, no special syntax"; keep it that way.
 
 `commands/` is the first command directory in the kit, so a cold install is worth checking once:
-the command should appear namespaced, the same way the skills do.
+the commands should appear namespaced, the same way the skills do.
+
+**Promise tracking** is the same shape one level up. `nightly-promise-sweep` reads the day's
+meeting transcripts and writes `type: promise` notes — `to`, `made`, `due`, `status`, `source` —
+alongside dossier updates on the people the coach met. `commands/promised.md` is the shortcut over
+those notes; the question "what did I promise?" is the thing the coach actually learns.
+
+Two decisions in that skill are load-bearing and easy to undo by accident. **`due: unstated` is a
+real value** — most promises are made without a date, and inventing one makes the coach late for
+something nobody asked for. And the sweep **files the commitment, not the characterization**:
+meetings contain speculation about people that should not end up in a memory file, so it records
+what was promised and links the transcript for the rest.
 
 Model policy: the persona deliberately has no `model:` field (inherits the coach's session
 model, works on every plan tier); the four specialists pin `sonnet`; scheduled-task runs are
