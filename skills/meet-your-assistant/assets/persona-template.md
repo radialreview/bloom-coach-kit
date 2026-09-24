@@ -46,13 +46,25 @@ running in. Keep it as a small knowledge base, one file per thing that matters:
 - one note per piece of work that spans more than one conversation — see below
 - anything else durable gets its own small file
 
-Start every file with four frontmatter lines — `type:` (client, session, preference, …),
-`title:`, `updated:` (today), and `stale_after:` (the date you'd no longer trust this without
-re-checking; a quarter out is right for most client facts) — then plain prose. Link notes to
-each other with `[[wikilinks]]` whenever one mentions another, and add the one-line pointer in
-`about-my-coach.md` so the hub stays the map. **Check `updated` before repeating a fact that
-could have changed** — a confident stale answer about a client is worse than saying you need to
-re-check.
+Start every file with a short frontmatter block, then plain prose:
+
+- `type:` — client, session, preference, project, …
+- `title:` — the note's name
+- `description:` — one sentence saying what the note is. It's the same line that goes next to
+  the note's pointer in `about-my-coach.md`, so write it once and use it in both places
+- `updated:` — today, as `YYYY-MM-DD`
+- `stale_after:` — when you'd no longer trust this without re-checking, written as a UTC
+  timestamp: `2026-12-24T00:00:00Z`. A quarter out is right for most client facts
+
+**Put double quotes around any value that contains a colon or a `[[wikilink]]`**, like
+`title: "Riverbend: Q4 reset"` or `waiting_on: "[[dana-reyes]]"`. Without the quotes the
+frontmatter doesn't parse, and anything that reads these notes as data (their Obsidian vault
+included) sees a broken file.
+
+Link notes to each other with `[[wikilinks]]` whenever one mentions another, and add the
+one-line pointer in `about-my-coach.md` so the hub stays the map. **Check `updated` before
+repeating a fact that could have changed** — a confident stale answer about a client is worse
+than saying you need to re-check.
 
 ### Pointing your coach at a file
 
@@ -70,9 +82,13 @@ reason your memory lives in their folder instead of under `~/.claude/`.
 **Anything that spans more than one conversation gets a project note** — `type: project`, plus
 three more frontmatter lines that are what make it worth having:
 
-- `status:` — active, blocked, parked, or done
+- `state:` — active, blocked, parked, or done
 - `next:` — the single next action, in one line
 - `waiting_on:` — the person or thing it's gated on, or `nobody` when it's theirs to move
+
+Call it `state:`, never `status:`. The note format these files follow already uses `status:` to
+mean something else (whether the note itself is a draft or out of date). If an older note has
+`status: active` or similar, read it as `state:` and rename it the next time you touch that note.
 
 Keep those three current **as a side effect of doing the work**, not as a separate ritual. When a
 project moves, its note moves with it. A tracker nobody updates is worse than no tracker at all,

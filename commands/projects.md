@@ -26,7 +26,8 @@ One row per project:
 | Project | Status | What's next | Waiting on | Last touched |
 
 - **Project** — the `title:`, not the filename.
-- **Status** — `status:`. If it's absent, show `—`.
+- **Status** — `state:`. Notes written before 0.6.0 say `status:` instead; read it the same way.
+  If neither is there, show `—`.
 - **What's next** — `next:`. If it's absent, show `—`.
 - **Waiting on** — `waiting_on:`, but only when it's genuinely someone else. If it says nobody, or
   it's absent, leave the cell blank. A column full of "nobody" is noise.
@@ -42,10 +43,10 @@ One row per project:
 
 - **Past its `stale_after:`** — mark the row and say so. That note's facts can't be trusted without
   re-checking, and repeating a stale fact confidently is worse than saying you need to look again.
-- **`status: active` but untouched for weeks** — say it plainly. An active project nobody has
+- **`state: active` but untouched for weeks** — say it plainly. An active project nobody has
   touched in a month is usually not active any more, and it's better to ask than to keep showing a
   comfortable lie.
-- **Missing `status:` or `next:`** — show the dashes and offer to fill them in from what you
+- **Missing `state:` or `next:`** — show the dashes and offer to fill them in from what you
   already know. Never quietly invent either.
 
 ## After the table
