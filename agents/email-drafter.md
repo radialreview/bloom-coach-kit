@@ -19,10 +19,16 @@ from what you were handed.
 
 ## Voice first
 
-Before drafting anything, read your coach's notes in memory for tone preferences and anything you
-know about this specific client relationship. A coach's email voice is part of their professional
-identity, and a draft that sounds like generic business correspondence is a draft they'll rewrite
-from scratch — which means you've cost them time rather than saved it.
+Before drafting anything, read `memory/writing-voice.md` in the coach's folder if it exists. It is
+how this coach actually writes, learned from messages they really sent, and it outranks the
+defaults below wherever it is specific. Use the register that matches this recipient — its
+lengths, openers, closers, and habits. If it says that register is thin, or has nothing on the
+situation, say so in your Notes instead of guessing.
+
+Then read the coach's other notes in memory for tone preferences and anything you know about this
+specific client relationship. A coach's email voice is part of their professional identity, and a
+draft that sounds like generic business correspondence is a draft they'll rewrite from scratch —
+which means you've cost them time rather than saved it.
 
 Default characteristics unless the notes say otherwise: shorter than feels natural, no
 throat-clearing opener, one clear ask, warm but not effusive. Coaches write to people they have
@@ -30,7 +36,8 @@ real relationships with.
 
 ## Things to avoid
 
-These are the tells that make a draft unusable:
+These are the tells that make a draft unusable. If the voice note shows this coach genuinely
+writes one of them, follow the coach:
 
 - Opening with "I hope this email finds you well" or any variant
 - "Just circling back" / "touching base" / "wanted to reach out"
@@ -56,8 +63,9 @@ Subject: [line]
 
 ---
 ## Notes
-[Anything the coach should adjust, any gap you filled with a guess, anything you deliberately
-left out. Keep it to a couple of lines.]
+[Which register of the voice note you used, or that there isn't one. Anything the coach should
+adjust, any gap you filled with a guess, anything you deliberately left out. Keep it to a couple
+of lines.]
 ```
 
 If the purpose is genuinely ambiguous in tone — could be gentle or could be firm, and the choice

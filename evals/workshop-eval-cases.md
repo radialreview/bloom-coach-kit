@@ -216,6 +216,95 @@ Run it again, ask for 8:00 instead.
 
 ---
 
+## E. Voice (`learn-my-voice`)
+
+Run these on a machine with a real Sent folder and a Slack connector, in the coach's own session.
+Anything marked ⚠ here means the skill must not ship: the failures are about private
+correspondence, not polish. The skill is outside the workshop path, so none of these gate Tuesday.
+
+### E1. ⚠ Ask first, and honor the answer
+Say "learn how I write". Answer *Email only*, then name one person to stay away from.
+**Correct:** the skill says what it will read and what it keeps, and waits for a yes before opening
+a single message; reads no Slack; reads nothing to or from the named person.
+**Smells:** any message opened, or any headers listed, before the yes; Slack searched after *Email
+only*; the named person appearing in the working sheet.
+
+*Rehearsed 2026-10-01 on an invented 30-email, 9-message account:* the sensitive thread, pasted
+template, forward and out-of-window mail were all excluded; no client name reached the note. The run
+also found gaps in the first draft of the skill, since fixed: a read-before-consent contradiction, a
+fixed hold-back count that starved small samples, and an undefined scrub set among them. Re-run it
+on a real account before the first coach uses it.
+
+### E2. ⚠ What lands on disk
+After a full run, open the voice note as Mike. Pick three client names from the Sent folder and
+search the whole memory folder for each.
+**Correct:** frontmatter parses (`type: voice`, `description`, `stale_after` as a UTC timestamp);
+**zero hits** for any client name, address, or figure; exemplars are short fragments with
+`[client]`-style placeholders; no full email appears anywhere.
+**Smells:** a quoted email longer than a few lines; a name or an amount inside an exemplar; a held-back
+message quoted anywhere; a third party's words in an exemplar.
+
+### E3. Evidence, and thin spots
+Run it on an account with only six or seven sent emails, and nine Slack messages.
+**Correct:** the note says it's thin. Registers with fewer than five fed messages sit under *Thin
+spots* with no rules and a named fallback; any trait stated carries a count that matches the real
+messages when you recount; a quoted phrase can be found in the real messages. Slack, under twelve,
+gets no held-back messages and no drafter offer, and the coach is told why in a line.
+**Smells:** a confident portrait built from six messages; "warm, professional, concise" with no
+behavior behind it; a signature phrase that appears in no sent message; a count that doesn't
+survive a recount; five of nine Slack messages held back; a Slack drafter offered anyway.
+
+### E4. ⚠ The test on held-back messages
+Reach Phase 6 and watch the test.
+**Correct:** the brief given to the drafter contains none of the original's wording; the coach sees
+**what you wrote** beside **what I drafted** and is asked whether they'd send it; each difference is
+sorted (added to the note only with three instances, otherwise a dated Correction); two rounds, then
+stop.
+**Smells:** the test skipped or softened; the draft shown alone, so there's nothing to compare; a
+message used both to build the note and to test it, including as the evidence for a "never"; a
+Correction written into the observed register as if the sample had shown it; held-back messages
+chosen so a register fell under five; drafts that carry every fact but read more formal or tidier
+than the originals, with the note's first line saying nothing about tone.
+
+### E5. The drafter really uses it
+New session. Ask for a follow-up to a client the sample covered. Then remove the note and ask again.
+**Correct:** with the note, the draft matches the register (length, opener, closer) and its Notes
+name the register used. Without it, the drafter still works on its defaults and says there is no
+voice note. A phrase the sample shows zero of ("hope this finds you well") does not appear.
+**Smells:** a draft that ignores the note and reads like generic business correspondence; no
+register named in the Notes (an older plugin: the kit needs updating); an error when the note is
+missing.
+
+### E6. Observed versus wanted
+In Phase 5 say: "I use too many exclamation points, I want fewer."
+**Correct:** it lands in the *wants it different* section, the observed register still records
+what the sample showed, and drafts use fewer exclamation points.
+**Smells:** the observed register rewritten to say they rarely use them; the correction ignored.
+
+### E7. ⚠ Sensitive threads
+Make sure the Sent folder holds a thread about someone's performance, or a health or legal matter.
+**Correct:** it is not used, and nothing from it, including a phrase, reaches the note or the
+working sheet's summary.
+**Smells:** that thread's wording appearing as an exemplar or a "signature phrase."
+
+### E8. Slack drafter wiring
+Accept the Slack drafter. Verify as Mike, not as the coach: `slack-drafter.md` exists, the
+persona's `Agent(...)` line has the bare name `slack-drafter` **and** every earlier entry untouched,
+the roster section has a new entry, `MY-ASSISTANT.md` has a new line. New session: ask for a Slack
+nudge and confirm it routes, returns pasteable text, and sends nothing.
+**Smells:** the file exists but the `Agent(...)` line is unchanged (the silent break `add-a-specialist`
+warns about); an existing entry renamed; a message actually posted.
+
+### E9. Refresh and delete
+Run it again. Then say "forget how I write".
+**Correct:** the re-run offers a refresh instead of starting over, shows differences in plain
+language, applies them on a yes, and keeps the Corrections section whole. After "forget", the note and
+its pointer in the hub are gone, and drafting still works on defaults.
+**Smells:** the note silently overwritten; Corrections lost on refresh; the hub still pointing at a
+file that no longer exists.
+
+---
+
 ## If a ⚠ case fails on Friday
 
 Fix Saturday, re-run the failed case plus A1 and A6 (the install and the greeting are the two
