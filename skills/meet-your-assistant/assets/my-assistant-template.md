@@ -22,6 +22,7 @@ You don't need to pick a specialist. Just say what you need and {{NAME}} sorts i
 - "Who am I meeting this week that I need to prep for?"
 - "What have I got in flight?"
 - "Where did we leave the {{EXAMPLE_CLIENT}} work?"
+- "Learn how I write, so your drafts sound like me."
 
 ## If something goes wrong
 

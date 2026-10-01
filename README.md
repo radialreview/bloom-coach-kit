@@ -27,6 +27,10 @@ Requires a paid Claude plan — the Code tab isn't available on the free tier.
 - `skills/set-up-my-morning/` — creates the local weekday morning-brief task
 - `skills/nightly-promise-sweep/` — creates the local nightly transcript sweep: files what the
   coach promised, updates what it knows about the people they met, leaves a morning list
+- `skills/learn-my-voice/` — reads a sample of the coach's own sent email and Slack, writes a
+  voice note the drafters read before they write, and tests it on messages held back
+  - `assets/voice-note-template.md` — the note, written to `memory/writing-voice.md`
+  - `assets/slack-drafter.md` — an optional specialist, written to `~/.claude/agents/`
 - `commands/projects.md` — the `/projects` view over the assistant's project notes
 - `commands/promised.md` — the `/promised` view over what the coach owes, and to whom
 - `agents/meeting-prep.md` — specialist
@@ -60,6 +64,22 @@ The kit's promise to coaches is "no commands, no special syntax"; keep it that w
 
 `commands/` is the first command directory in the kit, so a cold install is worth checking once:
 the commands should appear namespaced, the same way the skills do.
+
+**Voice learning** (`learn-my-voice`) is the first skill that reads the coach's private
+correspondence, and its decisions are load-bearing. **The note holds patterns and short scrubbed
+fragments, never messages**: no message body is written to disk at any point, and names, companies
+and figures are replaced before a fragment is kept. **No finding without three instances**, each
+with its count, so a coach or a maintainer can check a claim; an absence counts only as a verified
+zero. **Observed voice and wanted voice are separate sections**, or the drafter copies habits the
+coach is trying to lose. **A few messages per surface are held back** (about one in five, two or
+three, taken only from registers that can spare them) and used to test the note in Phase 6. The
+test is mandatory, for the same reason the supervised first run is in `set-up-my-morning`. The
+note is found through the hub pointer and by `email-drafter` reading it
+by path, not by editing the persona, so the only persona edit the skill ever makes is the
+`slack-drafter` chair, done the `add-a-specialist` way. A drafter on an older plugin ignores the
+note and nothing errors: the drafters name the register they used in their Notes, and the skill's
+test step reads that as the signal. The loop that learns from the coach's edits to real drafts is
+banked in `phase-two/BACKLOG.md`, with the reason it isn't built.
 
 **Promise tracking** is the same shape one level up. `nightly-promise-sweep` reads the day's
 meeting transcripts and writes `type: promise` notes — `to`, `made`, `due`, `state`, `source` —
