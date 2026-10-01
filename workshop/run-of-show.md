@@ -124,6 +124,9 @@ No agenda on the wall; the actual agenda:
 - Stephanie triages anyone who fell behind (triage sheet order: install → setup → first use).
 - Fast coaches: hire *another* specialist — they know how now; this time from their own real
   practice (proposals, invoice nudges, testimonial collection).
+- Coaches with a second business or a spare address: `multiple-mailboxes.md` — 15 minutes of
+  Gmail settings that gets every inbox in front of their assistant. Self-identifies the moment
+  email connects and only one shows up.
 - **1:45 — "where this goes," on the projector, five minutes total, demo only:**
   - **Remote Control** (per the build brief — nothing to set up).
   - **Mike's Command Deck** — 60 seconds on the live page: check a box, click one link back to
@@ -138,6 +141,9 @@ No agenda on the wall; the actual agenda:
   upgrade — webinar two, it's a good one."*
 - "Can it read my [CRM/other tool]?" → *"If it's in the connector menu, yes — grab me at open
   floor. If not, it's on the roadmap list."*
+- "I have three email addresses — can it read them all?" → *"One at a time through the
+  connector, but there's a 15-minute Gmail setup that points them all at one inbox. Grab me at
+  open floor."* (Sheet: `multiple-mailboxes.md`.)
 - Model/plan questions → *"Open the MY-ASSISTANT.md file in your folder — your assistant wrote
   you a cheat sheet during setup, and this one's in there."* Don't teach the model picker to
   the room. (Triage sheet row 15 has the actual fix if someone's blocked on a usage limit.)
