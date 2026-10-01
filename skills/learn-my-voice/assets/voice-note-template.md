@@ -17,8 +17,9 @@ When {{COACH_NAME}} says a draft was off, file it under *Corrections* below.
 
 ## The short version
 
-<!-- Open with the tone in one line: how formal, how polished, how loose. Then three or four lines
-on what a reader would notice first. Behavior, not adjectives. Delete this comment. -->
+<!-- Open with the tone in one line: how formal, how polished, how loose, and whether it shifts with
+how well they know the person. Then three or four lines on what a reader would notice first.
+Behavior, not adjectives. Delete this comment. -->
 
 ## Registers
 
