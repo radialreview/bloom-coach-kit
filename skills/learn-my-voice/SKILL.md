@@ -111,8 +111,9 @@ add to a register it matches on another surface.
 
 1. **Sort the selected messages into registers from who and where alone** — recipient, channel,
    DM or thread. No reading yet. A register is *who it goes to, and where*: typically email to
-   clients, email to colleagues, Slack DMs, Slack channels. You settle merges and splits after
-   reading, in Phase 4.
+   clients, email to colleagues, Slack DMs, Slack channels. How well the coach knows the person is
+   a third cut that a header can't show, so it waits for Phase 4 and Phase 5. You settle merges and
+   splits after reading, in Phase 4.
 2. **Set aside the held-back messages for Phase 6:** about one in five of a surface's selected
    messages, at least two and at most three, taken only from a register that would still have at
    least eight afterwards, so that drops on reading can't push it under five. Prefer messages
@@ -145,6 +146,10 @@ they don't. Six is plenty. Then, for each register, say only what the sample sup
   loose. A drafter reads the first line hardest, and a mechanical trait read alone ("spells verbs
   out") sounds like formality. The first real test of this skill came back "too formal" because the
   note led with exactly that.
+- **Familiarity.** Look for how the tone shifts with how well the coach knows the person, and with
+  giving instructions versus chatting. If it shifts (looser and quicker to people who know them,
+  more careful and courteous to people who don't), say so in the opening line and in the register. A
+  sample can show it only if it holds both kinds of recipient, so Phase 5 asks about it directly.
 - **Cover:** typical length and the ceiling; greeting and sign-off; where the ask sits; how a no, a
   late item, or a hard thing is said; paragraphing, lists, bold; punctuation habits (exclamation
   marks, dashes, ellipses, caps); contractions; emoji; hedging; humor; phrases they reuse
@@ -163,14 +168,21 @@ they don't. Six is plenty. Then, for each register, say only what the sample sup
 
 Don't show the note. Tell them what you found in six to eight plain lines: how long they go, how
 they open and close, how they ask, how they handle a hard one, what they never say, and whether
-Slack differs from email (it may not). Name what stayed thin, name any messages you left out as probably assistant-drafted and ask which
-were theirs, and if you're not offering a Slack drafter, say why in one line. Then `AskUserQuestion`:
+Slack differs from email (it may not). Name what stayed thin, name any messages you left out as
+probably assistant-drafted and ask which were theirs, and if you're not offering a Slack drafter,
+say why in one line. Then `AskUserQuestion`:
 
 1. **Does this sound like you?** — *That's me* / *Mostly, a few fixes* / *Not really*. On *Mostly*,
    ask what to change, once, in free text.
 2. **Is there anything here you'd rather your assistant did differently from how you write now?**
    Free text. ("I overuse exclamation marks." "I'm too curt with new clients.") If the answer is
    vague ("fewer dashes"), ask once what they'd do instead; otherwise write it in their words.
+3. **Do you write differently to people you know well and people you don't, or when you're giving
+   instructions?** — *Yes, quite differently* / *A little* / *No*. On *Yes* or *A little*, ask once,
+   in free text, what changes. In the first pilot this took two rounds of corrections to surface,
+   because the sample held mostly one kind of recipient. The answer is how they write, so it goes
+   in the observed register and the opening line, in their own words where the sample couldn't
+   show it.
 
 Their corrections beat the sample; they know what they meant. **Sort what they say into two
 piles.** "That's not how I write" fixes the observed register. "I'd rather not write that way"

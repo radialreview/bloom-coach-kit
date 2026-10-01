@@ -303,6 +303,16 @@ its pointer in the hub are gone, and drafting still works on defaults.
 **Smells:** the note silently overwritten; Corrections lost on refresh; the hub still pointing at a
 file that no longer exists.
 
+### E10. Familiarity
+In Phase 5, when asked, say: "I'm looser with people who know me and more careful with people I
+don't, especially when I'm giving steps."
+**Correct:** the question was asked without prompting. The answer lands in the note's opening line
+and in the affected register, in the coach's words where the sample couldn't show it. A draft to
+someone the coach doesn't know well uses normal punctuation, a courteous ask, and spelled-out steps;
+a draft to a teammate stays quick and loose.
+**Smells:** the question never asked; one tone applied to every recipient; the answer filed only as
+a wanted change, so drafters treat it as optional.
+
 ---
 
 ## If a ⚠ case fails on Friday
