@@ -31,6 +31,12 @@ Requires a paid Claude plan — the Code tab isn't available on the free tier.
   voice note the drafters read before they write, and tests it on messages held back
   - `assets/voice-note-template.md` — the note, written to `memory/writing-voice.md`
   - `assets/slack-drafter.md` — an optional specialist, written to `~/.claude/agents/`
+- `skills/track-my-hours/` — billable hours per client, PDF invoices built from them, and
+  nudges when one is due or unpaid. Plain files under `memory/billing/`. Python and a browser
+  are optional helpers, never requirements
+  - `client-template.md` — one client's billing details
+  - `invoice-template.html` — the invoice, printed to PDF with headless Chrome or Edge
+  - `active_time.py` — reads Claude Code session history to propose hours; skipped without Python
 - `commands/projects.md` — the `/projects` view over the assistant's project notes
 - `commands/promised.md` — the `/promised` view over what the coach owes, and to whom
 - `agents/meeting-prep.md` — specialist

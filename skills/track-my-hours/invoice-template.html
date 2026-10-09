@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Invoice {{invoice_number}}</title>
+<style>
+  @page { size: Letter; margin: 0.75in; }
+  * { box-sizing: border-box; }
+  body { font: 10.5pt/1.45 -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; color: #1f2328; margin: 0; }
+  header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 36px; }
+  h1 { font-size: 22pt; letter-spacing: 0.04em; margin: 0 0 4px; font-weight: 600; }
+  .muted { color: #656d76; }
+  .from { text-align: right; white-space: pre-line; }
+  .from strong { font-size: 12pt; color: #1f2328; }
+  .meta { display: flex; gap: 48px; margin-bottom: 28px; }
+  .meta div { white-space: pre-line; }
+  .label { font-size: 8pt; text-transform: uppercase; letter-spacing: 0.08em; color: #656d76; display: block; margin-bottom: 2px; }
+  table { width: 100%; border-collapse: collapse; }
+  th { text-align: left; font-size: 8pt; text-transform: uppercase; letter-spacing: 0.08em; color: #656d76; font-weight: 600; border-bottom: 1.5px solid #1f2328; padding: 6px 8px; }
+  td { padding: 7px 8px; border-bottom: 1px solid #d8dee4; vertical-align: top; }
+  td:first-child, th:first-child { padding-left: 0; white-space: nowrap; width: 1%; }
+  td:last-child, th:last-child { padding-right: 0; }
+  .num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  tr { break-inside: avoid; }
+  .totals { margin-left: auto; width: 280px; margin-top: 16px; }
+  .totals td { border: none; padding: 3px 0; }
+  .totals .grand td { border-top: 1.5px solid #1f2328; padding-top: 8px; font-size: 13pt; font-weight: 600; }
+  .pay { margin-top: 40px; padding-top: 14px; border-top: 1px solid #d8dee4; white-space: pre-line; }
+</style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>INVOICE</h1>
+      <div class="muted">{{invoice_number}}</div>
+    </div>
+    <div class="from"><strong>{{from_name}}</strong>
+{{from_address}}
+{{from_email}}</div>
+  </header>
+
+  <section class="meta">
+    <div><span class="label">Bill to</span>{{client_name}}
+{{billing_contact}}</div>
+    <div><span class="label">Issued</span>{{issue_date}}</div>
+    <div><span class="label">Due</span>{{due_date}}</div>
+    <div><span class="label">Period</span>{{period}}</div>
+  </section>
+
+  <table>
+    <thead>
+      <tr><th>Date</th><th>Work</th><th class="num">Hours</th><th class="num">Amount</th></tr>
+    </thead>
+    <tbody>
+      {{line_items}}
+    </tbody>
+  </table>
+
+  <table class="totals">
+    <tr><td>Total hours</td><td class="num">{{total_hours}}</td></tr>
+    <tr><td>Rate</td><td class="num">{{rate}} / hour</td></tr>
+    <tr class="grand"><td>Amount due</td><td class="num">{{total}}</td></tr>
+  </table>
+
+  <section class="pay"><span class="label">Payment</span>{{payment_instructions}}</section>
+</body>
+</html>
