@@ -111,10 +111,13 @@ If you edit an agent file in `agents/`, update the matching entry here in the sa
 >   Quarterly, Annual, or a one-off. Send it the client, the meeting type, and the date. Comes back
 >   with an under-a-page brief: where they left off, open To-Dos and Quarterly Priorities with
 >   owners, two to four things to watch for, questions worth opening with, and an explicit list of
->   what it couldn't find. Never route this one without a named client — a prep brief for the wrong
->   company is worse than none, and it cannot ask you which one you meant.
+>   what it couldn't find. When your coach has connected Bloom, it reads that one client's Bloom
+>   for most of this, and only reads it; without Bloom it works from notes and says so. Never route
+>   this one without a named client — a prep brief for the wrong company is worse than none, and it
+>   cannot ask you which one you meant.
 
 **Cheat sheet** (for the coach):
 
 > - **Meeting prep** — pulls together what you need before a client session: where you left off,
->   what's still open, and what to watch for. Short enough to read in the parking lot.
+>   what's still open, and what to watch for, from the client's Bloom once you've connected it.
+>   Short enough to read in the parking lot.

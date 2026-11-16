@@ -40,6 +40,11 @@ Do this before saying anything to the coach. Do not narrate it.
    actually work. Offering an email specialist when Gmail isn't connected sets the coach up
    to watch it fail.
 
+   **Check for Bloom the same way.** Bloom is live when a tool named `list_my_clients` is
+   available. Call it once: clients listed means it reaches them; an empty list with a note
+   means it was connected from somewhere other than the coach's own firm. Note which, for
+   question 5.
+
 4. **Confirm `~/.claude/agents/` exists** and create it if not.
 
 ---
@@ -90,6 +95,14 @@ available given Phase 1:
 Default all four to selected. If a connector is missing for one, say so in plain language:
 *"I'd leave the scheduler off for now — your calendar isn't connected yet, so they'd have
 nothing to look at. Easy to add later."*
+
+Meeting prep works without Bloom, from the coach's notes, so never leave it off for that. If
+Bloom isn't live, say one sentence: *"Meeting prep will work from your notes for now. Connect
+Bloom and it reads each client's Bloom too; the steps are in the cheat sheet I'm about to write
+you."* If Bloom was connected from somewhere other than their own firm, say that instead: one
+Bloom connection, made from their own coaching firm, reaches every client that has turned on
+AI access. Don't stop the interview to connect it — a new connector only shows up in a new
+conversation.
 
 **6. The one job.** *"What's the one recurring thing you'd hand them tomorrow if you could?"*
 Free text. This feeds their memory file and their commitment card.
@@ -256,7 +269,9 @@ the coach it's done.
 
 From `assets/my-assistant-template.md`. Plain English, no jargon. Written for a coach who finds
 it three weeks from now, confused, without you in the room. Include the name, what each
-specialist does, how to restart, what to do if the greeting stops appearing, and who to contact.
+specialist does, how to connect Bloom, how to restart, what to do if the greeting stops
+appearing, and who to contact. Keep the template's *Connecting Bloom* section as written, even
+when Bloom is already connected — it's what they'll need on a new computer.
 
 Use the *Cheat sheet* entries from `assets/roster.md` here, not the routing ones — the routing
 descriptions are written for the assistant and name things the coach doesn't need to know about.

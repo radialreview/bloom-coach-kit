@@ -23,6 +23,26 @@ You don't need to pick a specialist. Just say what you need and {{NAME}} sorts i
 - "What have I got in flight?"
 - "Where did we leave the {{EXAMPLE_CLIENT}} work?"
 - "Learn how I write, so your drafts sound like me."
+- "Which of my clients need a look this week?" (once Bloom is connected)
+
+## Connecting Bloom
+
+{{NAME}} can read your clients' Bloom: their last Weekly, To-Dos, Quarterly Priorities, KPIs,
+O&O list and org chart. With it, meeting prep and your morning brief start from what each team
+actually committed to, not just from your notes. To connect it, once:
+
+1. In Claude, open **Settings → Connectors** and choose **Add custom connector**.
+2. Call it Bloom, and paste `https://mcp.bloomgrowth.com` as the address.
+3. Sign in to Bloom. On Bloom's confirm page, pick **your own coaching firm**, not a client.
+4. Start a new conversation and ask {{NAME}}: "Which clients can you read in Bloom?"
+
+One connection is enough. It reaches every client you coach that has turned on AI access, so if
+you connected Bloom more than once before, keep the one for your own firm and remove the
+others. A client missing from the list hasn't turned on AI access yet.
+
+{{NAME}} only reads Bloom. They never add or change anything there: no To-Dos, no O&O items, not
+in a client and not in your own firm. If something needs adding, {{NAME}} drafts it and you add
+it.
 
 ## If something goes wrong
 
@@ -35,6 +55,12 @@ answer your first message rather than greeting you before you've typed anything.
 **{{NAME}} says they can't see my calendar (or email).**
 The connection may have timed out. Open the "+" menu and reconnect it, then start a new
 conversation.
+
+**{{NAME}} says they can't read a client in Bloom.**
+Ask {{NAME}} which clients they can read in Bloom. If the list is empty, Bloom was connected from
+a client instead of your own firm: remove it and connect again, picking your firm (see
+*Connecting Bloom*). If the list is there but that client isn't on it, the client hasn't turned
+on AI access yet.
 
 **{{NAME}} feels like a different person / forgot who I am.**
 Tell them: "read your notes about me." That usually sorts it.
