@@ -104,14 +104,13 @@ The run starts with no context, so the rules have to travel with it:
 > under `missing` couldn't be read, so say that instead of judging it. For each other client,
 > find its leadership Weekly, the meeting whose name says Leadership; if none does, the weekly
 > meeting that ran most often. A client is worth a look when that Weekly has no session that
-> started in the last seven days, or when its
-> latest session's average rating was below 8 or its to-dos completed were below 90%, Bloom's
-> own goal. A null rating means none was recorded, and a to-do figure of 0 can mean none were
-> due; neither counts as low on its own. Name each client with its reason in a few words
-> ("Acme: no Weekly since Tuesday 3rd", "Birch: rated 6.5"). Take every figure from that
-> client's own rows and never combine clients. If nothing qualifies, say so in one line. If Bloom isn't
-> reachable this morning, say so in a clause. Never create or change anything in Bloom: this
-> brief only reads it.
+> started in the last seven days, or when its latest session's average rating was below 8 or its
+> to-dos completed were below 90%, Bloom's own goal. A null rating means none was recorded, and a
+> to-do figure of 0 can mean none were due; neither counts as low on its own. Name each client
+> with its reason in a few words ("Acme: no Weekly since Tuesday 3rd", "Birch: rated 6.5"). Take
+> every figure from that client's own rows and never combine clients. If nothing qualifies, say
+> so in one line. If Bloom isn't reachable this morning, say so in a clause. Never create or
+> change anything in Bloom: this brief only reads it.
 
 ---
 
