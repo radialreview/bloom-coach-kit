@@ -11,6 +11,7 @@ Rules of engagement, before the table:
 | # | Symptom | Fix |
 |---|---------|-----|
 | 1 | Windows: Code tab won't start a session | Git for Windows isn't installed (pre-work step 3). Install it, then **fully quit and reopen** the app. |
+| 1a | Mac: a box says git needs the "command line developer tools", or the App Store is downloading Xcode | Pre-work step 4 was skipped. Click **Install**, not Get Xcode, and wait a few minutes. If they already clicked Get Xcode, cancel that download, open Terminal, type `xcode-select --install`, and click **Install** on the box it brings up. Then **fully quit and reopen** the app. |
 | 2 | No Code tab at all | Free account — can't be fixed in the room. Pair them with a neighbor (Mike has the list of unconfirmed plans from the pre-work replies). |
 | 3 | "Add marketplace" can't find the plugin | They typed a URL, or downloaded a ZIP from the web. The box wants exactly: `radialreview/bloom-coach-kit` — nothing else. Settings → Plugins → Add → Add marketplace. |
 | 4 | Plugin installed but `/meet-your-assistant` isn't offered | Open a **new session** first. Still missing: Settings → Plugins → remove the marketplace, re-add it, reinstall, new session. |

@@ -6,7 +6,7 @@ announcement and gets skimmed.
 **Deadline given to coaches:** Sunday, deliberately. It's soft, and it leaves Monday to chase the
 stragglers while Mike is travelling.
 
-Three notes on why this is shaped the way it is:
+Four notes on why this is shaped the way it is:
 
 - **No GitHub link, and no mention of GitHub.** A coach who lands on the repo page sees a wall of
   files and a green **Code** button whose most obvious option, *Download ZIP*, produces a folder
@@ -15,6 +15,11 @@ Three notes on why this is shaped the way it is:
   costs compliance.
 - **The plan check is first** because it's the only one that can't be fixed in the room. No paid
   plan means no Code tab, and that coach spends two hours watching a neighbour.
+- **Step 4 is the one that catches Macs.** Installing the app isn't enough: the first time Code
+  starts on a Mac, macOS asks to install the command line developer tools for git, and the dialog
+  offers **Get Xcode** (a huge App Store download) next to **Install** (the small one). In August
+  the email told Mac users to skip the git step, so nobody saw that prompt until the room. Having
+  everyone open Code once at home surfaces it, and every other first-run prompt, the night before.
 
 ---
 
@@ -26,8 +31,8 @@ Tuesday morning you're going to build yourself an assistant. Not a chatbot you a
 something that knows your practice, remembers your clients, and hands work off to specialists you
 choose. By noon it'll be doing real work for you.
 
-To spend the session building instead of installing, I need about **15 minutes** from you before
-then. Three things.
+To spend the session building instead of installing, I need about **20 minutes** from you before
+then. Four things.
 
 **1. Make sure you're on a paid Claude plan.**
 Pro, Max, Team, or Enterprise — any of them is fine. The free plan won't work for this; the part
@@ -49,7 +54,19 @@ Click through the installer accepting every default. You will never use this pro
 you don't need to understand it — Claude needs it running underneath to work on Windows. Takes
 about three minutes.
 
-On a Mac? Skip this one entirely.
+On a Mac? Skip to step 4.
+
+**4. Everyone — open Code once and let it finish setting up.**
+Installing isn't quite enough. Open the Claude desktop app, click the **Code** tab, and start a
+session. The first time, it may ask to install or allow a few things. Say yes and let each one
+finish.
+
+On a Mac, a box will probably pop up saying the git command requires the command line developer
+tools. Click **Install**, not **Get Xcode**. Install is the small one and takes a few minutes; Get
+Xcode is a very large download you don't need. When it finishes, quit the Claude app and open it
+again.
+
+You're set when the Code tab opens and you can type to it.
 
 ---
 
