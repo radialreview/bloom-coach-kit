@@ -142,7 +142,7 @@ Task prompts search for connector tools by capability, never by server ID — co
 UUID-namespaced per account.
 
 **Bloom** (0.9.0). A coach connects Bloom once, from their own coaching firm (Settings →
-Connectors → `https://mcp.bloomgrowth.com`), and that one connection reads every client they
+Connectors → `https://mcp.bloomgrowth.com/mcp`), and that one connection reads every client they
 coach that has turned on AI access. Meeting prep reads the named client's Bloom for its brief,
 and the morning brief can add a "clients worth a look" line from `list_client_meetings`. Three
 rules hold everywhere and are written into each file that can reach Bloom (the persona, every

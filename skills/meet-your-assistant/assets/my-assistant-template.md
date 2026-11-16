@@ -33,7 +33,7 @@ actually committed to, not just from your notes. To connect it, once:
 
 1. In Claude, open **Settings → Connectors** and choose **Add custom connector**. (On a Team or
    Enterprise plan without that button, your workspace owner adds Bloom once first.)
-2. Call it Bloom, and paste `https://mcp.bloomgrowth.com` as the address.
+2. Call it Bloom, and paste `https://mcp.bloomgrowth.com/mcp` as the address.
 3. Sign in to Bloom. On Bloom's confirm page, pick **your own coaching firm**, not a client.
 4. Start a new conversation and ask {{NAME}}: "Which clients can you read in Bloom?"
 
