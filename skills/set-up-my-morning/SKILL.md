@@ -52,6 +52,15 @@ paths. "Every weekday at 7:30" is the entire vocabulary.
    Offer connector-backed ingredients only for connectors actually authorized in this session,
    and build every one with an honest notes fallback.
 
+4. **Check for Bloom.** Bloom is live when a tool named `list_my_clients` is available. Call it
+   once. Clients listed means the coach's Bloom reaches them, and **Clients worth a look** goes
+   on the Phase 2 menu. An empty list with a note means Bloom was connected from somewhere
+   other than the coach's own firm; no such tool means Bloom isn't connected. In either case,
+   leave the ingredient off the menu and tell the coach in one sentence that connecting Bloom
+   from their own coaching firm adds it, with the steps in their cheat sheet. An empty list
+   with no note means none of their clients has turned on AI access yet: leave it off and say
+   that instead.
+
 ---
 
 ## Phase 2 — Two questions
@@ -71,6 +80,9 @@ default — only ask about days if they bring it up.
   day's open calendar gaps, their call target, and — only when {{NAME}}'s notes actually hold
   them — a name or two worth reaching
 - **One suggested priority** — the single thing {{NAME}} would put first today
+- **Clients worth a look** — *only when Phase 1 found Bloom live; selected by default.* One
+  line naming the clients whose leadership Weekly didn't happen this past week or went poorly,
+  read from Bloom across all their clients at once
 - *(anything else they name — take it if the connectors and notes can support it; say so
   plainly if not)*
 
@@ -80,6 +92,25 @@ they say. Two rules for the ingredient's wording in the task prompt: the nudge m
 **specific window** ("your 10–11 gap"), because "make your calls today" is noise a coach reads
 past by Thursday — and it must **never invent a name to call**. Names come from the notes or
 the nudge stays about the time block; a made-up prospect kills trust in the whole brief.
+
+If they keep **Clients worth a look**, add `list_client_meetings` (Bloom) to
+`{{NEEDED_CAPABILITIES}}` and put this wording into the task prompt's ingredients as it stands.
+The run starts with no context, so the rules have to travel with it:
+
+> **Clients worth a look**, in one line. Call Bloom's `list_client_meetings` with no `since`, so
+> it covers its default period, and read every page: call it again with `page: 2`, `page: 3` and
+> so on up to the `pages` it reports. Go through every client in `clients_on_page` on every page,
+> not only the ones with meeting rows: a client with no rows has had no Weekly. A client listed
+> under `missing` couldn't be read, so say that instead of judging it. For each other client,
+> find its leadership Weekly, the meeting whose name says Leadership; if none does, the weekly
+> meeting that ran most often. A client is worth a look when that Weekly has no session that
+> started in the last seven days, or when its latest session's average rating was below 8 or its
+> to-dos completed were below 90%, Bloom's own goal. A null rating means none was recorded, and a
+> to-do figure of 0 can mean none were due; neither counts as low on its own. Name each client
+> with its reason in a few words ("Acme: no Weekly since Tuesday 3rd", "Birch: rated 6.5"). Take
+> every figure from that client's own rows and never combine clients. If nothing qualifies, say
+> so in one line. If Bloom isn't reachable this morning, say so in a clause. Never create or
+> change anything in Bloom: this brief only reads it.
 
 ---
 
@@ -178,7 +209,9 @@ those are different machinery with different trade-offs, and Tuesday is not the 
 ## Guardrails
 
 - **One brief per assistant.** If a `{{SLUG}}-morning-brief` task already exists, offer to change
-  its time or contents (`update_scheduled_task`) — never create a second one.
+  its time or contents (`update_scheduled_task`) — never create a second one. Adding **Clients
+  worth a look** to an existing brief needs another supervised Run now, so the Bloom call gets
+  its approval.
 - **Local task, never a cloud routine.** Worth stating twice.
 - **The prompt must be fully self-contained** — persona path, memory path, ingredients, format.
   A prompt that assumes session context produces a stranger's brief.

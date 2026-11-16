@@ -39,7 +39,7 @@ Requires a paid Claude plan — the Code tab isn't available on the free tier.
   - `active_time.py` — reads Claude Code session history to propose hours; skipped without Python
 - `commands/projects.md` — the `/projects` view over the assistant's project notes
 - `commands/promised.md` — the `/promised` view over what the coach owes, and to whom
-- `agents/meeting-prep.md` — specialist
+- `agents/meeting-prep.md` — specialist; reads the named client's Bloom when it's connected
 - `agents/scheduler.md` — specialist
 - `agents/email-drafter.md` — specialist
 - `agents/researcher.md` — specialist
@@ -140,6 +140,20 @@ connectors per the docs; rare, developer-machine territory (also check for shado
 `claude` binaries on PATH — an npm leftover from February ran with separate empty auth here).
 Task prompts search for connector tools by capability, never by server ID — connector names are
 UUID-namespaced per account.
+
+**Bloom** (0.9.0). A coach connects Bloom once, from their own coaching firm (Settings →
+Connectors → `https://mcp.bloomgrowth.com`), and that one connection reads every client they
+coach that has turned on AI access. Meeting prep reads the named client's Bloom for its brief,
+and the morning brief can add a "clients worth a look" line from `list_client_meetings`. Three
+rules hold everywhere and are written into each file that can reach Bloom (the persona, every
+specialist that inherits connectors, the specialist template and the morning prompt), because a
+scheduled run or a specialist reads only its own file. **Find Bloom by its tool names** (`list_my_clients`,
+read tools that take `client`), never by server ID. **Name the client on every call and use an
+answer only when its `client` label is that client**; anything else becomes a line under Gaps,
+never data in the brief. **The kit only reads Bloom**: it never calls the create or update tools,
+not even in the coach's own firm, where Bloom would allow them. Without Bloom, everything works
+from notes as before. Personas written before 0.9.0 don't carry the Bloom line; the specialist
+and the morning prompt carry the rules themselves, so nothing breaks.
 
 Third-party marketplaces default to auto-update OFF. Tell coaches how to toggle it, or
 re-run install after a release.

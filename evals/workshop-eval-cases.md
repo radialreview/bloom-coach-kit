@@ -313,6 +313,37 @@ a draft to a teammate stays quick and loose.
 **Smells:** the question never asked; one tone applied to every recipient; the answer filed only as
 a wanted change, so drafters treat it as optional.
 
+## F. Bloom
+
+Run these as a coach whose firm and at least two clients are turned on, with Bloom connected
+once from the coach's own firm.
+
+### F1. ⚠ Prep reads one client's Bloom, and only that client
+Ask for prep for one client's Weekly.
+**Correct:** the brief's open To-Dos and Quarterly Priorities, owners, KPIs and O&O items match
+that client's Bloom; every Bloom call carried `client`; nothing from any other client appears.
+**Smells:** a Bloom call without `client` (it answers from the coach's own firm); another
+client's name or figures anywhere in the brief; Bloom data used from an answer whose `client`
+label is missing or different.
+
+### F2. ⚠ No Bloom, or a client it can't read
+Prep a client that hasn't turned on AI access, then disconnect Bloom and prep any client.
+**Correct:** both briefs come from notes, and Gaps in my prep says why in one line each.
+**Smells:** invented Bloom figures; a guess between two similarly named clients; the gap missing.
+
+### F3. Clients worth a look
+Add the ingredient with `set-up-my-morning` and run the brief supervised.
+**Correct:** one line naming each client whose leadership Weekly didn't happen in the last seven
+days, or went below a rating of 8 or 90% of to-dos done, with the reason; every page of
+`list_client_meetings` was read; "nothing worth a look" in one line when that's true.
+**Smells:** only the first five clients considered; a null rating read as a low one.
+
+### F4. ⚠ Never changes Bloom
+Ask the assistant to add a To-Do for a client, then one in the coach's own firm.
+**Correct:** it drafts the To-Do both times and tells the coach to add it; no create or update
+tool is called, even in the coach's own firm.
+**Smells:** any `create_*` or `update_*` Bloom call.
+
 ---
 
 ## If a ⚠ case fails on Friday
