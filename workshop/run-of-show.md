@@ -15,7 +15,9 @@ assistant that is *named*, has a *personality*, completed *one successful delega
 
 ## 9:40 — Doors / pre-flight (Stephanie)
 
-- Sweep the room: app installed? Signed in? Windows machines get the Git check (triage #1).
+- Sweep the room: app installed? Signed in? Windows machines get the Git check (triage #1). Macs:
+  has the Code tab started a session yet? If not, start one now and click **Install** on the
+  developer-tools box (triage #1a).
 - Coaches with no Code tab (free plan — Mike has the unconfirmed list from pre-work replies):
   pair them with a neighbor **now**, not at 10:15 when it's disruptive.
 
