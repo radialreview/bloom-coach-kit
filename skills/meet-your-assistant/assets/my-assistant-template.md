@@ -31,14 +31,15 @@ You don't need to pick a specialist. Just say what you need and {{NAME}} sorts i
 O&O list and org chart. With it, meeting prep and your morning brief start from what each team
 actually committed to, not just from your notes. To connect it, once:
 
-1. In Claude, open **Settings → Connectors** and choose **Add custom connector**.
+1. In Claude, open **Settings → Connectors** and choose **Add custom connector**. (On a Team or
+   Enterprise plan without that button, your workspace owner adds Bloom once first.)
 2. Call it Bloom, and paste `https://mcp.bloomgrowth.com` as the address.
 3. Sign in to Bloom. On Bloom's confirm page, pick **your own coaching firm**, not a client.
 4. Start a new conversation and ask {{NAME}}: "Which clients can you read in Bloom?"
 
 One connection is enough. It reaches every client you coach that has turned on AI access, so if
-you connected Bloom more than once before, keep the one for your own firm and remove the
-others. A client missing from the list hasn't turned on AI access yet.
+you connected Bloom more than once before, remove them all and connect once more, from your own
+firm. A client missing from the list hasn't turned on AI access yet.
 
 {{NAME}} only reads Bloom. They never add or change anything there: no To-Dos, no O&O items, not
 in a client and not in your own firm. If something needs adding, {{NAME}} drafts it and you add
@@ -57,10 +58,11 @@ The connection may have timed out. Open the "+" menu and reconnect it, then star
 conversation.
 
 **{{NAME}} says they can't read a client in Bloom.**
-Ask {{NAME}} which clients they can read in Bloom. If the list is empty, Bloom was connected from
-a client instead of your own firm: remove it and connect again, picking your firm (see
-*Connecting Bloom*). If the list is there but that client isn't on it, the client hasn't turned
-on AI access yet.
+Ask {{NAME}} which clients they can read in Bloom. If none, {{NAME}} will say which of two things
+it is. Bloom was connected from somewhere other than your own firm: remove it and connect again,
+picking your firm (see *Connecting Bloom*). Or none of your clients has turned on AI access yet:
+nothing to fix on your side. If the list has others but not that client, that client hasn't
+turned on AI access yet.
 
 **{{NAME}} feels like a different person / forgot who I am.**
 Tell them: "read your notes about me." That usually sorts it.

@@ -145,8 +145,9 @@ UUID-namespaced per account.
 Connectors → `https://mcp.bloomgrowth.com`), and that one connection reads every client they
 coach that has turned on AI access. Meeting prep reads the named client's Bloom for its brief,
 and the morning brief can add a "clients worth a look" line from `list_client_meetings`. Three
-rules hold everywhere and are written into each file that touches Bloom, because a scheduled
-run or a specialist reads only its own file. **Find Bloom by its tool names** (`list_my_clients`,
+rules hold everywhere and are written into each file that can reach Bloom (the persona, every
+specialist that inherits connectors, the specialist template and the morning prompt), because a
+scheduled run or a specialist reads only its own file. **Find Bloom by its tool names** (`list_my_clients`,
 read tools that take `client`), never by server ID. **Name the client on every call and use an
 answer only when its `client` label is that client**; anything else becomes a line under Gaps,
 never data in the brief. **The kit only reads Bloom**: it never calls the create or update tools,

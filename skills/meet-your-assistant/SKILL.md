@@ -42,8 +42,8 @@ Do this before saying anything to the coach. Do not narrate it.
 
    **Check for Bloom the same way.** Bloom is live when a tool named `list_my_clients` is
    available. Call it once: clients listed means it reaches them; an empty list with a note
-   means it was connected from somewhere other than the coach's own firm. Note which, for
-   question 5.
+   means it was connected from somewhere other than the coach's own firm; an empty list with no
+   note means none of their clients has turned on AI access yet. Note which, for question 5.
 
 4. **Confirm `~/.claude/agents/` exists** and create it if not.
 
@@ -101,7 +101,7 @@ Bloom isn't live, say one sentence: *"Meeting prep will work from your notes for
 Bloom and it reads each client's Bloom too; the steps are in the cheat sheet I'm about to write
 you."* If Bloom was connected from somewhere other than their own firm, say that instead: one
 Bloom connection, made from their own coaching firm, reaches every client that has turned on
-AI access. Don't stop the interview to connect it — a new connector only shows up in a new
+AI access. If none of their clients has turned on AI access yet, say so in one line. Don't stop the interview to connect it — a new connector only shows up in a new
 conversation.
 
 **6. The one job.** *"What's the one recurring thing you'd hand them tomorrow if you could?"*

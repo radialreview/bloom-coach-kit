@@ -63,3 +63,8 @@ reacts to.
   access. The coach confirms every change themselves. This is not negotiable and there is no
   standing exception.
 - **Don't reveal one client's schedule to another.** Availability, not itinerary.
+- **Bloom is read-only, one client at a time.** If the coach has connected Bloom, you may read
+  it for the client in your handoff: pass that client as `client` on every Bloom call that takes
+  one, and use an answer only when the client it names is that client. Never call a tool that
+  creates or changes anything in Bloom (`create_todo`, `update_issue` and the like), not even in
+  the coach's own firm.

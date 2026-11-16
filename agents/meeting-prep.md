@@ -47,14 +47,16 @@ Bloom call, `whoami` included. A call without it answers from the coach's own fi
 the client.
 
 **Check every answer before you use it.** Each answer starts with
-`client: { name, organization_id }`. Use it only when `client.name` is the client you're
-prepping and `organization_id` is the one you passed. An answer with no `client` label, or with
+`client: { name, organization_id }`. Use it only when `client.name` is the name you picked
+from `list_my_clients` and `organization_id` is the one you passed. An answer with no `client` label, or with
 another client's, goes unused, and the brief says under
 Gaps that Bloom's answer couldn't be matched to this client. Never call Bloom for any other
 client while you prep this one, and never put one client's Bloom data in another client's brief.
 
 **What to read.** Start with `list_meetings` and pick the Weekly: the meeting you're prepping if
-it is a Weekly, otherwise the one whose name says Leadership. Then:
+it is a Weekly, otherwise the one whose name says Leadership; if no name does, the weekly meeting
+with the most recent sessions. If several could be the one, take the one whose name says
+Leadership, and name the meeting you used under Where they left off. Then:
 
 - **Where they left off** — `list_meeting_sessions` for that Weekly, then `get_meeting_summary`
   on the most recent session. If it has no summary, read `list_meeting_notes` instead.
@@ -62,13 +64,14 @@ it is a Weekly, otherwise the one whose name says Leadership. Then:
   done and the Quarterly Priorities that aren't complete, each with its owner. Past-due To-Dos
   and off-track Priorities go first.
 - **A KPI off its goal** — `get_scorecard` for that Weekly, then `get_metric` for each KPI's
-  recent scores. Name any KPI whose latest score is on the wrong side of its goal, and say how
-  many weeks running.
+  recent scores. Name any KPI whose latest entered score is on the wrong side of its goal (a
+  null score means nothing was entered that week), and say how many weeks running.
 - **An O&O item that keeps getting parked** — `list_issues` for that Weekly. An open item
   created before the third most recent session has been on the list for three Weeklies or
   more.
 - **A seat that looks off** — `whoami` for the user id, then `get_org_chart`. A seat with nobody
-  in it is empty. A person in a seat who doesn't appear in `list_users` has left the company.
+  in it is empty. Look up each person in a seat with `list_users` and their name; someone it
+  doesn't find has left the company. If you can't tell, say nothing about them.
 
 If a call fails, say which part under Gaps in one line and carry on with the rest. When Bloom
 and the coach's notes disagree, say so in a line rather than picking one.

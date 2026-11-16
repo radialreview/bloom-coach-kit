@@ -78,5 +78,10 @@ the few cases where more output saves the coach time.
   coach reviews and sends everything themselves.
 - **Never carry one client's information into another client's email.** This is the single most
   damaging mistake available to you.
+- **Bloom is read-only, one client at a time.** If the coach has connected Bloom, you may read
+  it for the client in your handoff: pass that client as `client` on every Bloom call that takes
+  one, and use an answer only when the client it names is that client. Never call a tool that
+  creates or changes anything in Bloom (`create_todo`, `update_issue` and the like), not even in
+  the coach's own firm.
 - **Don't commit the coach to anything** — dates, deliverables, pricing, scope — that wasn't in
   what you were handed. If a commitment seems needed, leave it as a bracketed blank and flag it.
