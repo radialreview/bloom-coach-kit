@@ -61,61 +61,61 @@
   <label><input type="checkbox">Demo folder open; your assistant answers &ldquo;good afternoon&rdquo;</label>
   <label><input type="checkbox">Connectors: <b style="display:inline">Bloom Staging on, prod Bloom off</b> (and mail, Slack, Drive off)</label>
   <label><input type="checkbox">A new conversation, nothing in it</label>
-  <label><input type="checkbox">Deck open at slide 16</label>
+  <label><input type="checkbox">Deck open at slide 14</label>
 </div>
 
-<h2><span class="t">2:00</span> Why Bloom <span class="sl">slides 16&ndash;19</span></h2>
+<h2><span class="t">2:00</span> Why Bloom <span class="sl">slides 14&ndash;17</span></h2>
 <ul class="say">
   <li>This morning your assistant learned your notes and your calendar. This hour it learns your clients&rsquo; Bloom.</li>
   <li>Pause after &ldquo;Bloom does.&rdquo; Everything else hangs off it.</li>
-  <li>Slide 19 is the one clients will ask them about. Say it slowly. Step 6 shows line two for real.</li>
+  <li>Slide 17 is the one clients will ask them about. Say it slowly. Step 6 shows line two for real.</li>
 </ul>
 
-<h2><span class="t">2:05</span> The demo <span class="sl">slides 20&ndash;27</span></h2>
+<h2><span class="t">2:05</span> The demo <span class="sl">slides 18&ndash;25</span></h2>
 <ul class="say">
   <li>Say first: these clients were set up last night, so their meetings lasted seconds. Claude will notice.</li>
   <li>Live if the Wi-Fi holds; otherwise talk over the screenshot on each slide. Short on time: 1, 2, 4, 6.</li>
 </ul>
 
 <div class="card">
-  <div class="head"><span class="num">1</span><span class="where">Any chat</span><span>slide 21</span></div>
+  <div class="head"><span class="num">1</span><span class="where">Any chat</span><span>slide 19</span></div>
   <div class="prompt"><code id="p1">Which clients can you read in Bloom?</code><button class="copy" data-for="p1">Copy</button></div>
   <p class="see"><b>Watch for:</b> Northwind and Saguaro by name, and one more client counted but not named. That one hasn&rsquo;t opted in.</p>
 </div>
 
 <div class="card">
-  <div class="head"><span class="num">2</span><span class="where">Any chat</span><span>slide 22</span></div>
+  <div class="head"><span class="num">2</span><span class="where">Any chat</span><span>slide 20</span></div>
   <div class="prompt"><code id="p2">How did my clients' Weeklies go over the last four weeks? A table of ratings and To-Dos done.</code><button class="copy" data-for="p2">Copy</button></div>
   <p class="see"><b>Watch for:</b> one table across both clients; nobody switched orgs. Northwind 7, 6, 6.5 with To-Dos around 60%; Saguaro 9s and 100%.</p>
   <p class="warn">It flags that the sessions lasted seconds and look like test runs. Agree with it: that&rsquo;s last night&rsquo;s setup.</p>
 </div>
 
 <div class="card">
-  <div class="head"><span class="num">3</span><span class="where">Any chat</span><span>slide 23 &middot; spare</span></div>
+  <div class="head"><span class="num">3</span><span class="where">Any chat</span><span>slide 21 &middot; spare</span></div>
   <div class="prompt"><code id="p3">Check on Northwind. What happened at their last Weekly, and what's slipping?</code><button class="copy" data-for="p3">Copy</button></div>
   <p class="see"><b>Watch for:</b> three of six To-Dos overdue (Lena&rsquo;s bank financials, Marcus&rsquo;s job post, Tom&rsquo;s packing quotes), each one the next step on an open issue.</p>
 </div>
 
 <div class="card">
-  <div class="head"><span class="num">4</span><span class="where asst">To your assistant</span><span>slides 24&ndash;25</span></div>
+  <div class="head"><span class="num">4</span><span class="where asst">To your assistant</span><span>slides 22&ndash;23</span></div>
   <div class="prompt"><code id="p4">Prep me for Northwind's Quarterly on Thursday.</code><button class="copy" data-for="p4">Copy</button></div>
   <p class="see"><b>Watch for:</b> it opens with a caveat that their Bloom data is thin, then the facts: shipping KPI 88, 84, 81, 79% against 95%; cash sliding toward its $400K floor; the returns KPI on goal while &ldquo;fall jacket returns are high&rdquo; sits on the O&amp;O list. Four questions to open with, and it says what it didn&rsquo;t check.</p>
 </div>
 
 <div class="card">
-  <div class="head"><span class="num">5</span><span class="where">Any chat</span><span>slide 26 &middot; spare</span></div>
+  <div class="head"><span class="num">5</span><span class="where">Any chat</span><span>slide 24 &middot; spare</span></div>
   <div class="prompt"><code id="p5">Draft a nudge to Northwind's Integrator about their overdue To-Dos.</code><button class="copy" data-for="p5">Copy</button></div>
   <p class="see"><b>Watch for:</b> it finds Marcus Reyes (COO) on their org chart and names the three To-Dos and owners. A draft; nothing is sent.</p>
 </div>
 
 <div class="card">
-  <div class="head"><span class="num">6</span><span class="where asst">To your assistant</span><span>slide 27 &middot; the trust moment</span></div>
+  <div class="head"><span class="num">6</span><span class="where asst">To your assistant</span><span>slide 25 &middot; the trust moment</span></div>
   <div class="prompt"><code id="p6">Add a To-Do in Northwind's Bloom for their CEO to call the bank.</code><button class="copy" data-for="p6">Copy</button></div>
   <p class="see"><b>Watch for:</b> &ldquo;I can&rsquo;t add it myself. I only read Bloom.&rdquo; Then the To-Do ready to paste (Dana Whitfield, renew the $500K line of credit) and a flag that Lena&rsquo;s bank financials are already 11 days late.</p>
   <p class="warn">Only through the assistant. Plain Claude may &ldquo;helpfully&rdquo; create the To-Do in your own firm instead.</p>
 </div>
 
-<h2><span class="t">2:15</span> Connect <span class="sl">slides 28&ndash;29, leave 28 up</span></h2>
+<h2><span class="t">2:15</span> Connect <span class="sl">slides 26&ndash;27, leave 26 up</span></h2>
 <div class="card addr">
   <div class="prompt"><code id="addr">https://mcp.bloomgrowth.com/mcp</code><button class="copy" data-for="addr">Copy</button></div>
   <table class="tri">
@@ -126,7 +126,7 @@
   </table>
 </div>
 
-<h2><span class="t">2:35</span> Use it <span class="sl">slides 30&ndash;31</span></h2>
+<h2><span class="t">2:35</span> Use it <span class="sl">slides 28&ndash;29</span></h2>
 <ul class="say"><li>Most coaches only have their own firm turned on, so these read their own Bloom.</li></ul>
 <div class="card"><div class="prompt"><code id="u1">What To-Dos do I have open in Bloom, and which are past due?</code><button class="copy" data-for="u1">Copy</button></div></div>
 <div class="card"><div class="prompt"><code id="u2">How has our Weekly gone the last four weeks? Ratings and To-Dos done.</code><button class="copy" data-for="u2">Copy</button></div></div>
@@ -140,19 +140,15 @@
   <p class="see">Client not turned on? The brief says so under <i>Gaps</i>. That&rsquo;s the opt-in conversation to have this week.</p>
 </div>
 
-<h2><span class="t">2:50</span> Opt-in and close <span class="sl">slides 32&ndash;35</span></h2>
+<h2><span class="t">2:50</span> Opt-in and close <span class="sl">slides 30&ndash;32</span></h2>
 <ul class="say">
   <li>A new client shows up within a few minutes of being turned on. No reconnect.</li>
-  <li>No second read-around. Two minutes of quiet typing; Sam or Alejandra collects client names.</li>
 </ul>
 <div class="card"><div class="head"><span class="where">What to say to a client</span></div>
   <div class="prompt"><code id="o1">I've started preparing for our sessions with an AI assistant. With your OK, it can read your Bloom: your To-Dos, Quarterly Priorities and scorecard. It only reads, never changes anything, and Bloom logs every read. Tell me if you ever want it off.</code><button class="copy" data-for="o1">Copy</button></div>
 </div>
-<div class="card"><div class="head"><span class="where asst">To your assistant</span></div>
-  <div class="prompt"><code id="o2">I'll ask [client] to opt in by [date]. Hold me to this.</code><button class="copy" data-for="o2">Copy</button></div>
-</div>
 
-<p class="foot">Every demo slide is a real answer from Bloom Staging, taken the morning of 17 November: 21, 22, 23 and 26 from a plain Claude chat with only Bloom Staging on, and 24, 25 and 27 through the demo assistant in the desktop app.</p>
+<p class="foot">Every demo slide is a real answer from Bloom Staging, taken the morning of 17 November: 19, 20, 21 and 24 from a plain Claude chat with only Bloom Staging on, and 22, 23 and 25 through the demo assistant in the desktop app.</p>
 
 <script>
   function copyText(text, btn) {

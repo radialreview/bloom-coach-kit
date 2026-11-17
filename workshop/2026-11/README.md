@@ -4,9 +4,9 @@ Presenter files for the day: August's morning, then the Bloom MCP hour (2:00–3
 
 | File | What it is |
 |---|---|
-| `slides.pdf` | The whole day, 35 slides, 16:9. Works offline. Slides 1–15 are August's morning with the afternoon times updated; 16–35 are the Bloom MCP hour. |
+| `slides.pdf` | The whole day, 32 slides, 16:9. Works offline. Slides 1–13 are August's morning, without the commitment and read-around, and with the afternoon times updated; 14–32 are the Bloom MCP hour. |
 | `slides-src.html` | The source, in the same style as `../slides-src.html`. Edit this, then re-render. |
-| `shots/` | Real answers for all six demo steps on Bloom's test site (made-up clients): 1, 2, 3 and 5 from a Claude chat with only the Bloom Staging connector on; 4 and 6 through the demo assistant. `4-prep-full.png` is the whole prep brief, split across slides 24 and 25. |
+| `shots/` | Real answers for all six demo steps on Bloom's test site (made-up clients): 1, 2, 3 and 5 from a Claude chat with only the Bloom Staging connector on; 4 and 6 through the demo assistant. `4-prep-full.png` is the whole prep brief, split across slides 22 and 23. |
 | `prompt-sheet.html` | For the presenter's second monitor: every prompt with a Copy button (keys 1–6 copy the demo steps), what to watch for, what to say, and the slide number. Works offline. |
 | `demo-coach/` | The demo coaching folder: an assistant, Juniper, set up the way the kit sets one up, for a made-up firm whose three clients live on Bloom's test site. |
 | `render.sh` | Re-renders `slides.pdf` from the source. |
@@ -34,10 +34,10 @@ connector. It does nothing where those servers don't exist.
 Both go through the assistant, so they only run in the desktop app, in the demo folder. They were
 captured there on 17 November. To capture them again, run each prompt in the demo folder (they're on
 the prompt sheet), snip the answers, save them over `shots/4-prep.png` (the top of the brief, slide
-24), `shots/4-prep-2.png` (the rest, slide 25) and `shots/6-todo.png` (slide 27), then re-render:
+22), `shots/4-prep-2.png` (the rest, slide 23) and `shots/6-todo.png` (slide 25), then re-render:
 `bash render.sh` in Git Bash (uses Playwright's headless Chromium), or open `slides-src.html` in
 Chrome, Print, Save as PDF, margins None, background graphics on. If `4-prep.png` or `6-todo.png`
-is missing, slides 24 and 27 fall back to a "what you should see" card.
+is missing, slides 22 and 25 fall back to a "what you should see" card.
 
 Step 6 is the trust moment: the assistant says it only reads Bloom, writes the To-Do out and tells you
 to add it yourself. Never run it in a plain chat. Plain Claude may create the To-Do in your own firm
